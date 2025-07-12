@@ -13,7 +13,7 @@ import {
 } from "@mui/material";
 import "./style.css";
 
-function LoginPage({ onLogin }) {
+function LoginPage() {
   const [form, setForm] = useState({ email: "", password: "" });
   const [showPassword, setShowPassword] = useState(false);
   const [openForgotPassword, setOpenForgotPassword] = useState(false);
@@ -26,8 +26,7 @@ function LoginPage({ onLogin }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onLogin();
-    navigate("/dashboard");
+    navigate("/dashboard"); // Navigate without validation
   };
 
   const togglePasswordVisibility = () => {
