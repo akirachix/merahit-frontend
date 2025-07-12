@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./shared-component/Header/index";
+import Sidebar from "./shared-component/Sidebar/index";
+import Footer from "./shared-component/Footer/index";
+import LoginPage from "./Authentication/Login/index";
+import "./App.css";
 
 function App() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginPage />} />
+        <Route
+          path="/dashboard/*"
+          element={
+            <div className="admin-dashboard-app">
+              <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+              <div className="main-area">
+                <Sidebar open={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+              </div>
+              <Footer sidebarOpen={sidebarOpen} />
+            </div>
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
 
