@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent, act } from '@testing-library/react';
 import { useNavigate } from 'react-router-dom';
-import Sidebar from './index'; // Adjust the path to your Sidebar component
+import Sidebar from './index'; 
 import BarChartIcon from '@mui/icons-material/BarChart';
 import PersonIcon from '@mui/icons-material/Person';
 import BusinessIcon from '@mui/icons-material/Business';
