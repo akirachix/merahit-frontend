@@ -1,8 +1,23 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+jest.mock('./shared-components/Header/index', () => () => (
+  <header data-testid="header">Soko Connect Admin Dashboard</header>
+));
+
+jest.mock('./shared-components/Sidebar/index', () => () => (
+  <nav data-testid="sidebar" className="open">Sidebar</nav>
+));
+
+jest.mock('react-router-dom', () => ({
+  ...jest.requireActual('react-router-dom'),
+  UNSAFE_logV6DeprecationWarnings: jest.fn(),
+}));
+
+describe('App Component', () => {
+  test('renders header and sidebar', () => {
+    render(<App />);
+    expect(screen.getByTestId('header')).toBeInTheDocument();
+    expect(screen.getByTestId('sidebar')).toHaveClass('open');
+  });
 });

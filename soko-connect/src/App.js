@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./shared-components/Header/index";
+import Sidebar from "./shared-components/Sidebar/index";
+import "./App.css";
 
 function App() {
+  const [sidebarOpen, setSidebarOpen] = useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router future={{ v7_startTransition: true, v7_relativeSplatPath: true }}>
+      <Routes>
+        <Route
+          path="/*"
+          element={
+            <div className="admin-dashboard-app">
+              <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+              <div className={`main-area ${sidebarOpen ? "shifted" : ""}`}>
+                <Sidebar open={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+              </div>
+            </div>
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
 

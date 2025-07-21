@@ -1,0 +1,29 @@
+.admin-header {
+  display: flex;
+  align-items: center;
+  background-color: #e0d974;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; 
+  z-index: 1000; 
+  height: 60px; 
+}
+.header-hamburger {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin: 0 10px 0 0; 
+  color: rgb(4, 75, 16); 
+}
+.header-content {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+}
+.header-title {
+  font-size: 2rem;
+  color: rgb(4, 68, 14);
+  margin-left: 35%;
+}
