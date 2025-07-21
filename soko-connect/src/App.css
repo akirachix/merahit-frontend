@@ -1,20 +1,20 @@
 .admin-dashboard-app {
-  display: flex;
-  flex-direction: column;
-  background: #f4f4f6;
-  height: 100vh;
-  overflow: hidden;
+  min-height: 100vh;
 }
 
 .main-area {
-  display: flex;
-  flex: 1;
-  height: calc(100vh - 120px);
+  margin-left: 0;
+  padding: 60px 20px 20px 20px; 
+  transition: margin-left 0.3s ease;
 }
 
-@media (max-width: 900px) {
-  .main-area {
-    flex-direction: column;
-    height: calc(100vh - 120px);
-  }
+.main-area.shifted {
+  margin-left: 250px;
+}
+
+.main-area main {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
