@@ -11,10 +11,6 @@ const Customers = () => {
 
   const itemsPerPage = 8;
 
-  if (process.env.NODE_ENV !== 'production') {
-    console.log('Rendering Customers');
-    console.log('Customers Data:', customers, 'Loading:', loading, 'Error:', error);
-  }
 
   useEffect(() => {
     if (selectedCustomer) {
