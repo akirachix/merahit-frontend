@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Header from "./shared-components/Header/index";
 import Sidebar from "./shared-components/Sidebar/index";
+import Customers from "./Customers";
+import Vendors from "./Vendors";
 import "./App.css";
 
 function App() {
@@ -17,6 +19,12 @@ function App() {
               <Header sidebarOpen={sidebarOpen} setSidebarOpen={setSidebarOpen} />
               <div className={`main-area ${sidebarOpen ? "shifted" : ""}`}>
                 <Sidebar open={sidebarOpen} setSidebarOpen={setSidebarOpen} />
+                <main className={`main-content ${sidebarOpen ? "sidebar-open" : "sidebar-closed"}`}>
+                  <Routes>
+                    <Route path="/customers" element={<Customers />} />
+                    <Route path="/vendors" element={<Vendors />} />
+                  </Routes>
+                </main>
               </div>
             </div>
           }
