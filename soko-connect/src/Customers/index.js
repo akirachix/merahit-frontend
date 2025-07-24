@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useCustomers } from '../hooks/useCustomer';
+import { useCustomers } from '../hooks/useFetchCustomer';
 import './style.css';
 
 const Customers = () => {
@@ -9,7 +9,7 @@ const Customers = () => {
   const [showModal, setShowModal] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const itemsPerPage = 8; 
+  const itemsPerPage = 8;
 
   if (process.env.NODE_ENV !== 'production') {
     console.log('Rendering Customers');
@@ -28,9 +28,15 @@ const Customers = () => {
   useEffect(() => {
     setCurrentPage(1);
   }, [searchTerm]);
+  const customersWithLoyalty = customers.map(customer => ({
+    ...customer,
+    is_loyal:
+      typeof customer.is_loyal === 'boolean'
+        ? customer.is_loyal
+        : customer.paymentsPerWeek >= 5,
+  }));
 
-
-  const filteredCustomers = customers.filter(
+  const filteredCustomers = customersWithLoyalty.filter(
     (customer) =>
       customer.full_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       customer.phone_number.includes(searchTerm)
@@ -40,9 +46,7 @@ const Customers = () => {
     (a, b) => new Date(b.created_at) - new Date(a.created_at)
   );
 
-
   const totalPages = Math.ceil(sortedCustomers.length / itemsPerPage) || 1;
-
 
   const safeCurrentPage = currentPage > totalPages ? totalPages : currentPage;
 
@@ -87,7 +91,7 @@ const Customers = () => {
                   <th>Profile</th>
                   <th>Full Name</th>
                   <th>Phone Number</th>
-                  <th>Loyal</th>
+                  <th>Address</th> 
                   <th>Actions</th>
                 </tr>
               </thead>
@@ -104,7 +108,7 @@ const Customers = () => {
                     </td>
                     <td>{customer.full_name}</td>
                     <td>{customer.phone_number}</td>
-                    <td>{customer.is_loyal ? 'Yes' : 'No'}</td>
+                    <td>{customer.address || 'N/A'}</td> 
                     <td>
                       <button onClick={() => setSelectedCustomer(customer)}>View</button>
                     </td>
@@ -120,15 +124,11 @@ const Customers = () => {
               >
                 Previous
               </button>
-              {[...Array(totalPages).keys()].map((page) => (
-                <button
-                  key={page + 1}
-                  onClick={() => handlePageChange(page + 1)}
-                  className={safeCurrentPage === page + 1 ? 'active' : ''}
-                >
-                  {page + 1}
-                </button>
-              ))}
+
+              <span className="current-page">
+                Page {safeCurrentPage} of {totalPages}
+              </span>
+
               <button
                 onClick={() => handlePageChange(safeCurrentPage + 1)}
                 disabled={safeCurrentPage === totalPages}
@@ -157,12 +157,10 @@ const Customers = () => {
                   onError={(e) => (e.target.src = '/fallback-image.png')}
                 />
                 <div className="customer-text-details">
-                  <p>ID: {selectedCustomer.id}</p>
-                  <p>Full Name: {selectedCustomer.full_name}</p>
-                  <p>Phone Number: {selectedCustomer.phone_number}</p>
-                  <p>Address: {selectedCustomer.address || 'N/A'}</p>
-                  <p>Loyal: {selectedCustomer.is_loyal ? 'Yes' : 'No'}</p>
-                  <p>Joined: {new Date(selectedCustomer.created_at).toLocaleDateString()}</p>
+                  <p><b>Full Name:</b> {selectedCustomer.full_name}</p>
+                  <p><b>Phone Number:</b> {selectedCustomer.phone_number}</p>
+                  <p><b>Address: </b>{selectedCustomer.address || 'N/A'}</p>
+                  <p><b>Joined: </b>{new Date(selectedCustomer.created_at).toLocaleDateString()}</p>
                 </div>
               </div>
               <button onClick={() => setSelectedCustomer(null)}>Close</button>

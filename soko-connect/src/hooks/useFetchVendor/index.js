@@ -8,12 +8,8 @@ export const useVendors = () => {
     (async () => {
       try {
         setLoading(true);
-        const users = await fetchData("/users/");
-        console.log("Users from API:", users);
-        const filteredVendors = users.filter(
-          (u) => u.usertype && u.usertype.toLowerCase() === "mamamboga"
-        );
-        setVendors(filteredVendors || []);
+        const users = await fetchData("/users/?usertype=mamamboga");
+        setVendors(users);
         setLoading(false);
       } catch (err) {
         setError(err.message);

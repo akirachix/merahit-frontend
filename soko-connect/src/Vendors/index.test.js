@@ -1,7 +1,7 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import Vendors from './index';
 
-jest.mock('../hooks/useVendor/index', () => ({
+jest.mock('../hooks/useFetchVendor/index', () => ({
   useVendors: () => ({
     vendors: [
       {

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useVendors } from '../hooks/useVendor/index';
+import { useVendors } from '../hooks/useFetchVendor/index';
 import './style.css';
 
 const Vendors = () => {
@@ -20,18 +20,15 @@ const Vendors = () => {
     }
   }, [selectedVendor]);
 
- 
   useEffect(() => {
     setCurrentPage(1);
   }, [searchTerm]);
-
 
   const filteredVendors = vendors.filter(
     (vendor) =>
       vendor.full_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       vendor.phone_number.includes(searchTerm)
   );
-
 
   const sortedVendors = filteredVendors.sort(
     (a, b) => new Date(b.created_at) - new Date(a.created_at)
@@ -114,15 +111,9 @@ const Vendors = () => {
                 Previous
               </button>
 
-              {Array.from({ length: totalPages }, (_, i) => (
-                <button
-                  key={i + 1}
-                  onClick={() => handlePageChange(i + 1)}
-                  className={safeCurrentPage === i + 1 ? 'active' : ''}
-                >
-                  {i + 1}
-                </button>
-              ))}
+              <span className="current-page">
+                Page {safeCurrentPage} of {totalPages}
+              </span>
 
               <button
                 onClick={() => handlePageChange(safeCurrentPage + 1)}
@@ -152,11 +143,11 @@ const Vendors = () => {
                   onError={(e) => (e.target.src = '/fallback-image.png')}
                 />
                 <div className="customer-text-details">
-                  <p>Full Name: {selectedVendor.full_name}</p>
-                  <p>Phone Number: {selectedVendor.phone_number}</p>
-                  <p>Address: {selectedVendor.address || 'N/A'}</p>
-                  <p>User Type: {selectedVendor.usertype}</p>
-                  <p>Joined: {new Date(selectedVendor.created_at).toLocaleDateString()}</p>
+                  <p><b>Full Name: </b>{selectedVendor.full_name}</p>
+                  <p><b>Phone Number:</b> {selectedVendor.phone_number}</p>
+                  <p><b>Address:</b> {selectedVendor.address || 'N/A'}</p>
+                  <p><b>User Type:</b> {selectedVendor.usertype}</p>
+                  <p><b>Joined: </b>{new Date(selectedVendor.created_at).toLocaleDateString()}</p>
                 </div>
               </div>
               <button onClick={() => setSelectedVendor(null)}>Close</button>
