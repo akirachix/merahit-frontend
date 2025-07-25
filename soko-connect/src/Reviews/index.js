@@ -104,7 +104,8 @@ const ReviewsIndex = () => {
             </table>
 
             <div className="pagination" role="navigation" aria-label="Pagination Navigation">
-              <button className="previous"
+              <button
+                className="previous"
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
               >
@@ -137,10 +138,6 @@ const ReviewsIndex = () => {
           >
             <div className="review-details" onClick={(e) => e.stopPropagation()}>
               <h2 id="review-details-title">Review Details</h2>
-              <p>
-                <span className="modal-label">ID:</span>{" "}
-                <span className="modal-value">{selectedReview.id}</span>
-              </p>
               <p>
                 <span className="modal-label">Vendor:</span>{" "}
                 <span className="modal-value">{selectedReview.vendor.full_name}</span>
@@ -175,5 +172,3 @@ const ReviewsIndex = () => {
 };
 
 export default ReviewsIndex;
-
-

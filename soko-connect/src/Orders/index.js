@@ -12,7 +12,6 @@ const Orders = () => {
   const [selectedOrder, setSelectedOrder] = useState(null);
   const [showModal, setShowModal] = useState(false);
 
-
   useEffect(() => {
     if (selectedOrder) {
       const timer = setTimeout(() => setShowModal(true), 50);
@@ -35,6 +34,7 @@ const Orders = () => {
   useEffect(() => {
     if (currentPage > totalPages) setCurrentPage(totalPages);
   }, [currentPage, totalPages]);
+
   const paginatedOrders = filteredOrders.slice(
     (currentPage - 1) * rowsPerPage,
     currentPage * rowsPerPage
@@ -48,6 +48,11 @@ const Orders = () => {
     if (page >= 1 && page <= totalPages && page !== currentPage) {
       setCurrentPage(page);
     }
+  };
+
+  const getStatusClass = (status) => {
+    if (!status) return "";
+    return `status-${status.toLowerCase().replace(/\s+/g, "-")}`;
   };
 
   if (loading) return <div className="loading">Loading...</div>;
@@ -97,10 +102,12 @@ const Orders = () => {
                 const order = paginatedOrders[idx];
                 return order ? (
                   <tr key={order.id} className="orders-table-row">
-                    <td>{order.customer?.full_name || "-"}</td>
-                    <td>{order.vendor?.full_name || "-"}</td>
+                    <td className="customer-name">{order.customer?.full_name || "-"}</td>
+                    <td className="vendor-name">{order.vendor?.full_name || "-"}</td>
                     <td>KES {order.total_amount}</td>
-                    <td>{order.status}</td>
+                    <td>
+                      <span className={getStatusClass(order.status)}>{order.status}</span>
+                    </td>
                     <td>
                       <button onClick={() => handleViewDetails(order)}>View</button>
                     </td>
@@ -149,10 +156,6 @@ const Orders = () => {
           <div className="order-details" onClick={(e) => e.stopPropagation()}>
             <h2 id="order-details-title">Order Details</h2>
             <p>
-              <span className="modal-label">Order ID:</span>{" "}
-              <span className="modal-value">{selectedOrder.id}</span>
-            </p>
-            <p>
               <span className="modal-label">Customer:</span>{" "}
               <span className="modal-value">{selectedOrder.customer?.full_name || "-"}</span>
             </p>
@@ -193,5 +196,3 @@ const OrdersIndex = () => (
 );
 
 export default OrdersIndex;
-
-

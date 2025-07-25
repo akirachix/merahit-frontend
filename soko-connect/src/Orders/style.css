@@ -6,7 +6,7 @@
 }
 
 .page-banner {
-  color: rgb(3, 102, 13);
+  color: rgb(42, 87, 42); 
   padding: 40px 25px;
   border-radius: 8px;
 }
@@ -31,51 +31,53 @@
   width: 100%;
   box-sizing: border-box;
   margin-top: -20px;
-
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
 
 .orders-table {
   width: 100%;
-  background: #fff;
-  border-collapse: separate;
   border-spacing: 0;
-  border: 1px solid #c5d5a4;
-  border-radius: 8px;
   overflow: hidden;
   font-size: 17px;
   margin-top: 0px;
-
-
   max-width: 100%;
-  table-layout: fixed; 
+  table-layout: fixed;
 }
 
 .orders-table th,
 .orders-table td {
   padding: 16px 22px;
   text-align: left;
-  border-bottom: 1px solid #c5d5a4;
+  border-bottom: 1px solid rgb(44, 202, 57);
   word-wrap: break-word;
   white-space: nowrap;
 }
 
 .orders-table th {
-  color: #4caf50;
-  background-color: #f2fbdb;
+  color: #2f4f2f; 
+  background-color: #e9f0de; 
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
 
 .orders-table tbody tr:nth-child(even) {
-  background-color: #f9fcdc;
+  background-color: #f5f9ed; 
 }
 
 .orders-table tbody tr:hover {
-  background-color: #eaf6bb;
   cursor: pointer;
+}
+
+.vendor-name {
+  color: rgb(42, 87, 42) !important;
+  font-weight: 700;
+}
+
+.customer-name {
+  color: #0b6e6b !important;
+  font-weight: 600;
 }
 
 .orders-table button {
@@ -89,10 +91,6 @@
   transition: background-color 0.3s ease;
 }
 
-.orders-table button:hover {
-  background-color: #388e3c;
-  box-shadow: none;
-}
 
 .modal-overlay {
   position: fixed;
@@ -103,8 +101,6 @@
   background: rgba(0, 0, 0, 0.5);
   z-index: 2000;
   cursor: pointer;
-
-
   overflow-y: auto;
 }
 
@@ -121,7 +117,7 @@
   z-index: 2001;
   cursor: default;
   font-size: 16px;
-  color: #2e7d32;
+  color: #2e7d32; 
   box-sizing: border-box;
   overflow-y: auto;
   max-height: 80vh;
@@ -129,7 +125,7 @@
 
 .order-details h2,
 .order-details h3 {
-  color: #388e3c;
+  color: #000000; 
   margin-top: 0;
   margin-bottom: 18px;
   font-weight: 700;
@@ -151,12 +147,12 @@
 .order-details th,
 .order-details td {
   padding: 12px 14px;
-  border-bottom: 1px solid #c5d5a4;
+  border-bottom: 1px solid #a5cf7c; 
   text-align: left;
 }
 
 .order-details tbody tr:nth-child(even) {
-  background-color: #f2fbdb;
+  background-color: #f5f9ed;
 }
 
 h1 {
@@ -177,7 +173,6 @@ h1 {
 }
 
 .order-details button:hover {
-  background-color: #357a38;
   box-shadow: none;
 }
 
@@ -191,7 +186,7 @@ h1 {
 
 .pagination button {
   padding: 12px 20px;
-  background-color: #4caf50;
+  background-color: #087408; 
   color: white;
   border: none;
   border-radius: 6px;
@@ -203,16 +198,16 @@ h1 {
 }
 
 .pagination button:disabled {
-  background-color: #bdbdbd;
+  background-color: #a5ca8b; 
   cursor: not-allowed;
-  color: #666;
+  color: #547923; 
   box-shadow: none;
 }
 
 .pagination button.active {
-  background-color: #2e7d32;
+  background-color: #3b8d21;
   font-weight: 700;
-  outline: 2px solid #1b5e20;
+  outline: 2px solid #2f4f2f;
 }
 
 .loading,
@@ -220,18 +215,17 @@ h1 {
 .no-data {
   padding: 40px 25px;
   text-align: center;
-  color: #2e7d32;
-  background: #ffffff;
+  color: #406030;
+  background: #e6f0d9;
   border-radius: 8px;
-  border: 1px solid #c5d5a4;
+  border: 1px solid #a5ca8b;
   font-size: 20px;
   font-weight: 600;
 }
 
-
 button:focus,
 select:focus {
-  outline: 3px solid #a5d6a7;
+  outline: 3px solid #a4c26b;
   outline-offset: 2px;
 }
 
@@ -240,8 +234,8 @@ select:focus {
   font-size: 16px;
   border-radius: 6px;
   border: 1px solid #4caf50;
-  color: #244d00;
-  background: white;
+  color: #2f4f2f;
+  background: #f5f9ed;
   cursor: pointer;
   font-weight: 600;
   transition: border-color 0.3s ease;
@@ -250,20 +244,33 @@ select:focus {
 
 #status-filter:hover,
 #status-filter:focus {
-  border-color: #2e7d32;
   outline: none;
 }
-.modal-label {
-  color: black;
+
+.status-pending {
+  color: #ddb63e;
   font-weight: 700;
-  margin-right: 6px;
 }
 
-.modal-value {
-  color: #2e7d32; 
-  font-weight: 600;
+.status-picked-up {
+  color: #2196f3; 
+  font-weight: 700;
 }
 
+.status-completed {
+  color: rgb(2, 80, 41); 
+  font-weight: 1000;
+}
+
+.status-processing {
+  color: rgb(209, 209, 2); 
+  font-weight: 700;
+}
+
+.status-cancelled {
+  color: #d32f2f;
+  font-weight: 700;
+}
 
 @media (max-width: 768px) {
   .orders-container {
@@ -301,7 +308,7 @@ select:focus {
 
   .orders-table th:nth-child(5),
   .orders-table td:nth-child(5) {
-    display: none; 
+    display: none;
   }
 
   .orders-table th,
@@ -314,4 +321,4 @@ select:focus {
     min-width: 120px;
     font-size: 14px;
   }
-} 
+}

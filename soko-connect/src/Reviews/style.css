@@ -4,7 +4,6 @@
   color: #2f4f2f;
 }
 
-
 .reviews-container > h1 {
   margin-top: 30px;
   margin-left: 70px;
@@ -34,7 +33,6 @@
   width: 140px; 
   border-radius: 8px;
   color: #2f4f2f;
-  background-color: #f5f9ed;
   font-weight: 600;
   cursor: pointer;
   transition: border-color 0.3s ease;
@@ -48,9 +46,6 @@
   width: 100%;
   background: white;
   border-collapse: separate;
-  border-spacing: 0;
-  border: 1px solid #a5cf7c; 
-  border-radius: 8px;
   overflow: hidden;
   font-size: 17px;
 }
@@ -59,7 +54,7 @@
 .reviews-table td {
   padding: 14px 24px;
   text-align: left;
-  border-bottom: 1px solid #3f4;
+  border-bottom: 1px solid rgb(79, 209, 90);
 }
 
 .reviews-table th {
@@ -75,7 +70,6 @@
 }
 
 .reviews-table tbody tr:hover {
-  background-color: #e0f0bb;
   cursor: pointer;
 }
 
@@ -87,11 +81,9 @@
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
-
 }
 
 .reviews-table button:hover {
-  background-color: #3b8d21;
   box-shadow: none;
 }
 
@@ -168,7 +160,6 @@
 
 .modal-close-btn:hover,
 .modal-close-btn:focus {
-  background-color: #357a38; 
   outline: none;
 }
 
@@ -233,21 +224,32 @@ button:focus {
   outline: 3px solid #a4c26b;
   outline-offset: 2px;
 }
+
 .vendor-name {
   color: rgb(42, 87, 42);
   font-weight: 700;
 }
 
 .customer-name {
-  color: #0b6e6b;
+  color: #a4c26b;
   font-weight: 600;
 }
 
-.previous{
-  background-color: #0b6e6b;
+
+.status-pending {
+  color: #f0ad4e; 
+  font-weight: 700;
 }
 
+.status-approved {
+  color: #4caf50; 
+  font-weight: 700;
+}
 
+.status-rejected {
+  color: #d32f2f;
+  font-weight: 700;
+}
 
 @media (max-width: 600px) {
   .review-details {
