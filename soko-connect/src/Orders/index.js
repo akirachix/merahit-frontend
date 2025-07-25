@@ -60,8 +60,11 @@ const Orders = () => {
 
   return (
     <div className="orders-content">
-      <div style={{ marginBottom: 20 }}>
-        <label htmlFor="status-filter" style={{ marginRight: 10, fontWeight: 600 }}>
+      <div className="filter-label-wrapper">
+        <label
+          htmlFor="status-filter"
+          className="filter-label"
+        >
           Filter by Status:
         </label>
         <select
@@ -86,7 +89,6 @@ const Orders = () => {
             className="orders-table"
             role="table"
             aria-label="Orders table"
-            style={{ tableLayout: "fixed" }}
           >
             <thead>
               <tr>
@@ -129,7 +131,7 @@ const Orders = () => {
             >
               Previous
             </button>
-            <div style={{ padding: "0 10px", alignSelf: "center", fontWeight: 600 }}>
+            <div className="pagination-info">
               Page {currentPage} of {totalPages}
             </div>
             <button
@@ -165,7 +167,7 @@ const Orders = () => {
             </p>
             <p>
               <span className="modal-label">Status:</span>{" "}
-              <span className="modal-value">{selectedOrder.status}</span>
+              <span className={getStatusClass(selectedOrder.status)}>{selectedOrder.status}</span>
             </p>
             <p>
               <span className="modal-label">Total Amount:</span>{" "}
@@ -190,7 +192,7 @@ const Orders = () => {
 
 const OrdersIndex = () => (
   <div className="orders-container">
-    <h1>Track and manage customer orders</h1>
+    <h1>Track customer orders</h1>
     <Orders />
   </div>
 );

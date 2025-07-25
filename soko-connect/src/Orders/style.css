@@ -6,7 +6,7 @@
 }
 
 .page-banner {
-  color: rgb(42, 87, 42); 
+  color: rgb(42, 87, 42);
   padding: 40px 25px;
   border-radius: 8px;
 }
@@ -35,6 +35,23 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.filter-label-wrapper {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.filter-label {
+  margin-right: 10px;
+  font-weight: 600;
+  color: green;
+  font-size: 20px;
+}
+
+.filter-select {
+
+}
+
 .orders-table {
   width: 100%;
   border-spacing: 0;
@@ -55,15 +72,15 @@
 }
 
 .orders-table th {
-  color: #2f4f2f; 
-  background-color: #e9f0de; 
+  color: #2f4f2f;
+  background-color: #e9f0de;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.03em;
 }
 
 .orders-table tbody tr:nth-child(even) {
-  background-color: #f5f9ed; 
+  background-color: #f5f9ed;
 }
 
 .orders-table tbody tr:hover {
@@ -91,6 +108,10 @@
   transition: background-color 0.3s ease;
 }
 
+.orders-table button:hover {
+  background-color: #3b8d21;
+  box-shadow: none;
+}
 
 .modal-overlay {
   position: fixed;
@@ -117,7 +138,7 @@
   z-index: 2001;
   cursor: default;
   font-size: 16px;
-  color: #2e7d32; 
+  color: #2e7d32;
   box-sizing: border-box;
   overflow-y: auto;
   max-height: 80vh;
@@ -125,7 +146,7 @@
 
 .order-details h2,
 .order-details h3 {
-  color: #000000; 
+  color: #000000;
   margin-top: 0;
   margin-bottom: 18px;
   font-weight: 700;
@@ -147,7 +168,7 @@
 .order-details th,
 .order-details td {
   padding: 12px 14px;
-  border-bottom: 1px solid #a5cf7c; 
+  border-bottom: 1px solid #a5cf7c;
   text-align: left;
 }
 
@@ -186,7 +207,7 @@ h1 {
 
 .pagination button {
   padding: 12px 20px;
-  background-color: #087408; 
+  background-color: #087408;
   color: white;
   border: none;
   border-radius: 6px;
@@ -198,9 +219,9 @@ h1 {
 }
 
 .pagination button:disabled {
-  background-color: #a5ca8b; 
+  background-color: #a5ca8b;
   cursor: not-allowed;
-  color: #547923; 
+  color: #547923;
   box-shadow: none;
 }
 
@@ -247,23 +268,24 @@ select:focus {
   outline: none;
 }
 
+/* Status colors */
 .status-pending {
   color: #ddb63e;
   font-weight: 700;
 }
 
 .status-picked-up {
-  color: #2196f3; 
+  color: #2196f3;
   font-weight: 700;
 }
 
 .status-completed {
-  color: rgb(2, 80, 41); 
-  font-weight: 1000;
+  color: rgb(2, 80, 41);
+  font-weight: 700;
 }
 
 .status-processing {
-  color: rgb(209, 209, 2); 
+  color: rgb(209, 209, 2);
   font-weight: 700;
 }
 

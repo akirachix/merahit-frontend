@@ -250,7 +250,18 @@ button:focus {
   color: #d32f2f;
   font-weight: 700;
 }
-
+#ratingFilter {
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #4caf50;
+  color: green;
+  background: #f5f9ed;
+  cursor: pointer;
+  font-weight: 600;
+  transition: border-color 0.3s ease;
+  min-width: 150px;
+}
 @media (max-width: 600px) {
   .review-details {
     width: 90%;
