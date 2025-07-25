@@ -1,7 +1,7 @@
 .customers-container {
   background-color: transparent;
   padding: 20px;
-  min-height: calc(100vh - 200px);
+  min-height: calc(100vh - 300px);
 }
 
 .page-banner {
