@@ -4,6 +4,8 @@ import Header from "./shared-components/Header/index";
 import Sidebar from "./shared-components/Sidebar/index";
 import Reviews from "./Reviews/index";
 import Orders from "./Orders/index";
+import Customers from "./Customers";
+import Vendors from "./Vendors";
 import "./App.css";
 
 function App() {
@@ -21,8 +23,10 @@ function App() {
                 <Sidebar open={sidebarOpen} setSidebarOpen={setSidebarOpen} />
                 <main className={`main-content ${sidebarOpen ? "sidebar-open" : "sidebar-closed"}`}>
                   <Routes>
-                    <Route path="/reviews" element={<Reviews/>} />
-                    <Route path="/orders" element={<Orders/>} />
+                    <Route path="/reviews" element={<Reviews />} />
+                    <Route path="/orders" element={<Orders />} />
+                    <Route path="/customers" element={<Customers />} />
+                    <Route path="/vendors" element={<Vendors />} />
                   </Routes>
                 </main>
               </div>
@@ -30,7 +34,6 @@ function App() {
           }
         />
       </Routes>
-  
     </Router>
   );
 }
