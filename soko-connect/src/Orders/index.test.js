@@ -1,138 +1,126 @@
 import React from "react";
-import {
-  render,
-  screen,
-  fireEvent,
-  waitFor,
-  act,
-} from "@testing-library/react";
+import { render, screen, fireEvent, waitFor, within } from "@testing-library/react";
 import OrdersIndex from "./index";
-import * as useOrdersHook from "../hooks/useFetchOrders";
 
-jest.mock("./style.css", () => ({}));
+jest.mock("../hooks/useFetchOrders", () => ({
+  useOrders: jest.fn(),
+}));
 
-describe("OrdersIndex and Orders component", () => {
-  const mockOrders = [
-    {
-      id: 1,
-      customer: { full_name: "John Doe" },
-      vendor: { full_name: "BestVendor" },
-      total_amount: 1000,
-      status: "Delivered",
-      order_date: "2023-07-01T00:00:00Z",
-    },
-    {
-      id: 2,
-      customer: { full_name: "Jane Smith" },
-      vendor: { full_name: "VendorX" },
-      total_amount: 2000,
-      status: "Pending",
-      order_date: "2023-07-02T00:00:00Z",
-    },
-  ];
+import { useOrders } from "../hooks/useFetchOrders";
 
-  let fetchOrderDetailsMock;
+const sampleOrders = [
+  {
+    id: 1,
+    customer: { full_name: "Customer One" },
+    vendor: { full_name: "Vendor One" },
+    total_amount: 1000,
+    status: "Pending",
+    order_date: "2025-07-01T12:00:00Z",
+  },
+  {
+    id: 2,
+    customer: { full_name: "Customer Two" },
+    vendor: { full_name: "Vendor Two" },
+    total_amount: 2000,
+    status: "Completed",
+    order_date: "2025-07-02T12:00:00Z",
+  },
+];
 
-  beforeEach(() => {
-    fetchOrderDetailsMock = jest.fn();
-
-    jest.spyOn(useOrdersHook, "useOrders").mockReturnValue({
-      orders: mockOrders,
-      loading: false,
-      error: null,
-      fetchOrderDetails: fetchOrderDetailsMock,
-    });
-  });
-
-  afterEach(() => {
-    jest.resetAllMocks();
-  });
-
-  it("renders banner and orders table with pagination info and buttons", () => {
-    render(<OrdersIndex />);
-    expect(
-      screen.getByText(/track and manage customer orders/i)
-    ).toBeInTheDocument();
-
-    mockOrders.forEach(({ customer, vendor, total_amount, status }) => {
-      expect(screen.getByText(customer.full_name)).toBeInTheDocument();
-      expect(screen.getByText(vendor.full_name)).toBeInTheDocument();
-      expect(screen.getByText(new RegExp(total_amount.toString()))).toBeInTheDocument();
-    });
-
-    expect(screen.getByText("Previous")).toBeDisabled();
-    expect(screen.getByText(/Page 1 of \d+/i)).toBeInTheDocument();
-  });
-
-  it("changes page when Next and Previous clicked", async () => {
-    render(<OrdersIndex />);
-
-    const nextButton = screen.getByText("Next");
-    const prevButton = screen.getByText("Previous");
-
-    expect(prevButton).toBeDisabled();
-    await act(async () => {
-      fireEvent.click(nextButton);
-    });
-    await act(async () => {
-      fireEvent.click(prevButton);
-    });
-
-    expect(prevButton).toBeDisabled();
-    expect(screen.getByText(/Page 1 of \d+/i)).toBeInTheDocument();
-  });
-
-  it("shows loading state when loading is true", () => {
-    useOrdersHook.useOrders.mockReturnValueOnce({
-      orders: [],
-      loading: true,
-      error: null,
-      fetchOrderDetails: jest.fn(),
-    });
-
+describe("OrdersIndex Component", () => {
+  test("renders loading state initially", () => {
+    useOrders.mockReturnValue({ orders: [], loading: true, error: null });
     render(<OrdersIndex />);
     expect(screen.getByText(/loading/i)).toBeInTheDocument();
   });
 
-  it("shows error message on error", () => {
-    useOrdersHook.useOrders.mockReturnValueOnce({
-      orders: [],
-      loading: false,
-      error: "Failed to load orders",
-      fetchOrderDetails: jest.fn(),
-    });
-
+  test("renders error state", () => {
+    useOrders.mockReturnValue({ orders: [], loading: false, error: "Fetch error" });
     render(<OrdersIndex />);
-    expect(screen.getByText(/error: failed to load orders/i)).toBeInTheDocument();
+    expect(screen.getByText(/error/i)).toBeInTheDocument();
   });
 
-  describe("View order details modal", () => {
-    beforeEach(() => {
-      fetchOrderDetailsMock.mockResolvedValue({});
+  test("renders list of orders and filters by status correctly", async () => {
+    useOrders.mockReturnValue({ orders: sampleOrders, loading: false, error: null });
+
+    render(<OrdersIndex />);
+
+    expect(screen.getByText("Customer One")).toBeInTheDocument();
+    expect(screen.getByText("Customer Two")).toBeInTheDocument();
+
+    fireEvent.change(screen.getByLabelText(/filter orders by status/i), { target: { value: "Pending" } });
+
+    await waitFor(() => {
+      expect(screen.getByText("Customer One")).toBeInTheDocument();
+      expect(screen.queryByText("Customer Two")).not.toBeInTheDocument();
+    });
+    fireEvent.change(screen.getByLabelText(/filter orders by status/i), { target: { value: "Completed" } });
+
+    await waitFor(() => {
+      expect(screen.getByText("Customer Two")).toBeInTheDocument();
+      expect(screen.queryByText("Customer One")).not.toBeInTheDocument();
     });
 
-    it("opens modal with order details after clicking View button and closes on Close", async () => {
-      render(<OrdersIndex />);
-      const viewButtons = screen.getAllByText(/view/i);
-      expect(viewButtons.length).toBe(mockOrders.length);
-      await act(async () => {
-        fireEvent.click(viewButtons[0]);
-      });
-      expect(screen.getByText(mockOrders[0].customer.full_name)).toBeInTheDocument();
-      await waitFor(() => {
-        expect(screen.queryByText(new RegExp(`Order ID:.*${mockOrders[0].id}`))).not.toBeInTheDocument();
-      });
+    fireEvent.change(screen.getByLabelText(/filter orders by status/i), { target: { value: "All" } });
+
+    await waitFor(() => {
+      expect(screen.getByText("Customer One")).toBeInTheDocument();
+      expect(screen.getByText("Customer Two")).toBeInTheDocument();
     });
+  });
 
-    it("handles fetchOrderDetails failure gracefully", async () => {
-      fetchOrderDetailsMock.mockRejectedValueOnce(new Error("Failed to fetch details"));
+  test("pagination buttons work", () => {
+    const manyOrders = Array.from({ length: 15 }).map((_, i) => ({
+      id: i + 1,
+      customer: { full_name: `Customer ${i + 1}` },
+      vendor: { full_name: `Vendor ${i + 1}` },
+      total_amount: (i + 1) * 100,
+      status: "Pending",
+      order_date: "2025-07-01T12:00:00Z",
+    }));
 
-      render(<OrdersIndex />);
-      const viewButton = screen.getAllByText(/view/i)[0];
+    useOrders.mockReturnValue({ orders: manyOrders, loading: false, error: null });
+    render(<OrdersIndex />);
 
-      await act(async () => {
-        fireEvent.click(viewButton);
-      });
+    expect(screen.getByText("Customer 1")).toBeInTheDocument();
+
+    fireEvent.click(screen.getByLabelText(/next page/i));
+
+    expect(screen.getByText("Customer 8")).toBeInTheDocument();
+
+    fireEvent.click(screen.getByLabelText(/previous page/i));
+
+    expect(screen.getByText("Customer 1")).toBeInTheDocument();
+  });
+
+  test("modal opens and closes correctly when clicking View button", async () => {
+    useOrders.mockReturnValue({ orders: sampleOrders, loading: false, error: null });
+
+    render(<OrdersIndex />);
+
+    const viewButtons = screen.getAllByText(/view/i);
+    fireEvent.click(viewButtons[0]);
+
+    const dialog = await screen.findByRole("dialog");
+    expect(dialog).toBeInTheDocument();
+
+    expect(screen.getByText(/Order Details/i)).toBeInTheDocument();
+
+    const modal = within(dialog);
+    expect(modal.getByText(/Customer One/)).toBeInTheDocument();
+
+    fireEvent.click(screen.getByText(/close/i));
+
+    await waitFor(() => {
+      expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
     });
+  });
+
+  test("shows message when no orders match filter", () => {
+    useOrders.mockReturnValue({ orders: [], loading: false, error: null });
+
+    render(<OrdersIndex />);
+
+    expect(screen.getByText(/no order data available/i)).toBeInTheDocument();
   });
 });
