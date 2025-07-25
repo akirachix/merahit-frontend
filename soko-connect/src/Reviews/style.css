@@ -4,6 +4,7 @@
   color: #2f4f2f;
 }
 
+
 .reviews-container > h1 {
   margin-top: 30px;
   margin-left: 70px;
@@ -48,7 +49,7 @@
   background: white;
   border-collapse: separate;
   border-spacing: 0;
-  border: 1px solid #bcd2a3;
+  border: 1px solid #a5cf7c; 
   border-radius: 8px;
   overflow: hidden;
   font-size: 17px;
@@ -58,11 +59,11 @@
 .reviews-table td {
   padding: 14px 24px;
   text-align: left;
-  border-bottom: 1px solid #d0d8be;
+  border-bottom: 1px solid #3f4;
 }
 
 .reviews-table th {
-  color: #4caf50;
+  color: #2f4f2f;
   background-color: #e9f0de;
   font-weight: 600;
   text-transform: uppercase;
@@ -86,7 +87,7 @@
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
-  transition: background-color 0.25s ease;
+
 }
 
 .reviews-table button:hover {
@@ -100,7 +101,6 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(30, 30, 30, 0.85);
   z-index: 2000;
   cursor: pointer;
 
@@ -110,11 +110,9 @@
   align-items: center;
 }
 
-
 .review-details {
   width: 90%;
   max-width: 520px;
-  background: #fefefe;
   padding: 40px 40px 50px 40px;
   border-radius: 10px;
   position: relative;
@@ -124,10 +122,8 @@
   box-sizing: border-box;
   overflow-y: auto;
   max-height: 80vh;
-
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  background-color: white;
 }
-
 
 .review-details h2 {
   color: #000000; 
@@ -144,18 +140,15 @@
   margin-right: 8px;
 }
 
-
 .modal-value {
   color: #2e7d32;
   font-weight: 600;
 }
 
-
 .review-details p {
   margin: 14px 0;
   line-height: 1.5;
 }
-
 
 .modal-close-btn {
   margin-top: 25px;
@@ -188,7 +181,7 @@
 
 .pagination button {
   padding: 10px 18px;
-  background-color: #4caf50;
+  background-color: #198686;
   color: white;
   border: none;
   border-radius: 6px;
@@ -199,9 +192,9 @@
 }
 
 .pagination button:disabled {
-  background-color: #a7bda0;
+  background-color: #a5ca8b; 
   cursor: not-allowed;
-  color: #49643a;
+  color: #547923; 
   box-shadow: none;
 }
 
@@ -229,9 +222,9 @@
   padding: 35px 25px;
   text-align: center;
   color: #406030;
-  background: #ffffff;
+  background: #e6f0d9;
   border-radius: 8px;
-  border: 1px solid #bcd2a3;
+  border: 1px solid #a5ca8b; 
   font-size: 20px;
   font-weight: 600;
 }
@@ -240,6 +233,21 @@ button:focus {
   outline: 3px solid #a4c26b;
   outline-offset: 2px;
 }
+.vendor-name {
+  color: rgb(42, 87, 42);
+  font-weight: 700;
+}
+
+.customer-name {
+  color: #0b6e6b;
+  font-weight: 600;
+}
+
+.previous{
+  background-color: #0b6e6b;
+}
+
+
 
 @media (max-width: 600px) {
   .review-details {

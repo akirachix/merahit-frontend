@@ -10,7 +10,7 @@ const ReviewsIndex = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedReview, setSelectedReview] = useState(null);
   const [showModal, setShowModal] = useState(false);
-  const [ratingFilter, setRatingFilter] = useState(null); 
+  const [ratingFilter, setRatingFilter] = useState(null);
 
   const sortedReviews = useMemo(() => {
     let filtered = [...reviews];
@@ -66,7 +66,7 @@ const ReviewsIndex = () => {
             onChange={(e) => {
               const val = e.target.value;
               setRatingFilter(val === "" ? null : Number(val));
-              setCurrentPage(1); 
+              setCurrentPage(1);
             }}
           >
             <option value="">All</option>
@@ -92,8 +92,8 @@ const ReviewsIndex = () => {
               <tbody>
                 {paginatedReviews.map((review) => (
                   <tr key={review.id} className="reviews-table-row">
-                    <td>{review.vendor.full_name}</td>
-                    <td>{review.customer.full_name}</td>
+                    <td className="vendor-name">{review.vendor.full_name}</td>
+                    <td className="customer-name">{review.customer.full_name}</td>
                     <td>{review.rating}</td>
                     <td>
                       <button onClick={() => setSelectedReview(review)}>View</button>
@@ -104,7 +104,7 @@ const ReviewsIndex = () => {
             </table>
 
             <div className="pagination" role="navigation" aria-label="Pagination Navigation">
-              <button
+              <button className="previous"
                 onClick={() => handlePageChange(currentPage - 1)}
                 disabled={currentPage === 1}
               >
@@ -175,3 +175,5 @@ const ReviewsIndex = () => {
 };
 
 export default ReviewsIndex;
+
+
