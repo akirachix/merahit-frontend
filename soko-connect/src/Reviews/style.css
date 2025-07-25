@@ -1,0 +1,283 @@
+.reviews-container {
+  min-height: calc(100vh - 200px);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #2f4f2f;
+}
+
+.reviews-container > h1 {
+  margin-top: 30px;
+  margin-left: 70px;
+}
+
+.reviews-content {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
+}
+
+.filter-container {
+  font-size: 20px; 
+  color: #3b8d21;
+  font-weight: 700;
+  margin-left: 7px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px; 
+}
+
+.filter-container select {
+  font-size: 18px; 
+  padding: 10px 18px;
+  width: 140px; 
+  border-radius: 8px;
+  color: #2f4f2f;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.filter-container select:focus {
+  outline: none;
+}
+
+.reviews-table {
+  width: 100%;
+  background: white;
+  border-collapse: separate;
+  overflow: hidden;
+  font-size: 17px;
+}
+
+.reviews-table th,
+.reviews-table td {
+  padding: 14px 24px;
+  text-align: left;
+  border-bottom: 1px solid rgb(79, 209, 90);
+}
+
+.reviews-table th {
+  color: #2f4f2f;
+  background-color: #e9f0de;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.reviews-table tbody tr:nth-child(even) {
+  background-color: #f5f9ed;
+}
+
+.reviews-table tbody tr:hover {
+  cursor: pointer;
+}
+
+.reviews-table button {
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.reviews-table button:hover {
+  box-shadow: none;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2000;
+  cursor: pointer;
+
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-details {
+  width: 90%;
+  max-width: 520px;
+  padding: 40px 40px 50px 40px;
+  border-radius: 10px;
+  position: relative;
+  cursor: default;
+  font-size: 16px;
+  color: #2e7d32;
+  box-sizing: border-box;
+  overflow-y: auto;
+  max-height: 80vh;
+  background-color: white;
+}
+
+.review-details h2 {
+  color: #000000; 
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  font-size: 26px;
+}
+
+.modal-label {
+  color: #000000;
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+.modal-value {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.review-details p {
+  margin: 14px 0;
+  line-height: 1.5;
+}
+
+.modal-close-btn {
+  margin-top: 25px;
+  padding: 14px 30px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+  outline: none;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.pagination button {
+  padding: 10px 18px;
+  background-color: #198686;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.25s ease;
+  min-width: 44px;
+}
+
+.pagination button:disabled {
+  background-color: #a5ca8b; 
+  cursor: not-allowed;
+  color: #547923; 
+  box-shadow: none;
+}
+
+.pagination button.active {
+  background-color: #3b8d21;
+  font-weight: 700;
+  outline: 2px solid #2f4f2f;
+}
+
+.pagination-info {
+  padding: 10px 20px;
+  font-weight: 700;
+  color: #3b8d21;
+  border: 2px solid #4caf50;
+  border-radius: 6px;
+  user-select: none;
+  min-width: 44px;
+  text-align: center;
+  display: inline-block;
+}
+
+.loading,
+.error,
+.no-data {
+  padding: 35px 25px;
+  text-align: center;
+  color: #406030;
+  background: #e6f0d9;
+  border-radius: 8px;
+  border: 1px solid #a5ca8b; 
+  font-size: 20px;
+  font-weight: 600;
+}
+
+button:focus {
+  outline: 3px solid #a4c26b;
+  outline-offset: 2px;
+}
+
+.vendor-name {
+  color: rgb(42, 87, 42);
+  font-weight: 700;
+}
+
+.customer-name {
+  color: #a4c26b;
+  font-weight: 600;
+}
+
+
+.status-pending {
+  color: #f0ad4e; 
+  font-weight: 700;
+}
+
+.status-approved {
+  color: #4caf50; 
+  font-weight: 700;
+}
+
+.status-rejected {
+  color: #d32f2f;
+  font-weight: 700;
+}
+#ratingFilter {
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #4caf50;
+  background: #f5f9ed;
+  cursor: pointer;
+  font-weight: 600;
+  transition: border-color 0.3s ease;
+  min-width: 150px;
+}
+@media (max-width: 600px) {
+  .review-details {
+    width: 90%;
+    padding: 20px;
+  }
+  .reviews-container {
+    padding: 20px 15px;
+  }
+  .reviews-table th,
+  .reviews-table td {
+    padding: 12px 10px;
+  }
+  .pagination {
+    gap: 12px;
+  }
+  .pagination button {
+    padding: 8px 12px;
+    min-width: 38px;
+  }
+}
