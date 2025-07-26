@@ -10,10 +10,6 @@ export const fetchData = async (endpoint) => {
   const cleanEndpoint = endpoint.startsWith('/') ? endpoint : '/' + endpoint;
   const url = `${cleanBaseUrl}${cleanEndpoint}`;
 
-  // if (process.env.NODE_ENV !== "production") {
-  //   console.log("Fetching URL:", url);
-  // }
-
   try {
     const response = await fetch(url, {
       headers: {
@@ -22,20 +18,11 @@ export const fetchData = async (endpoint) => {
       },
     });
     if (!response.ok) {
-      // if (process.env.NODE_ENV !== "production") {
-      //   console.error(`Error fetching ${url}: Status ${response.status}`);
-      // }
       throw new Error(`Something went wrong: ${response.status}`);
     }
     const result = await response.json();
-    // if (process.env.NODE_ENV !== "production") {
-    //   console.log(`Response from ${url}:`, result);
-    // }
     return Array.isArray(result) ? result : [];
   } catch (error) {
-    // if (process.env.NODE_ENV !== "production") {
-    //   console.error(`Error fetching ${endpoint}:`, error.message);
-    // }
     throw new Error(error.message || "An error occurred");
   }
 };
