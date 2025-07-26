@@ -9,7 +9,7 @@ const Vendors = () => {
   const [showModal, setShowModal] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const itemsPerPage = 8; 
+  const itemsPerPage = 7; 
 
   useEffect(() => {
     if (selectedVendor) {

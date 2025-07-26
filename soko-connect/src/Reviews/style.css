@@ -1,12 +1,12 @@
 .reviews-container {
-  min-height: calc(100vh - 200px);
+  min-height: calc(100vh - 350px);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #2f4f2f;
 }
 
 .reviews-container > h1 {
-  margin-top: 30px;
-  margin-left: 70px;
+  margin-top: 5px;
+  margin-left: 5%;
 }
 
 .reviews-content {
