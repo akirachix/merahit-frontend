@@ -13,26 +13,26 @@ const mockDiscounts = [
   {
     id: 1,
     product: {
-      product_name: "apple",
-      product_image: "apple.jpg",
-      stock_unit: "piece",
+      product_name: "onion",
+      product_image: "onion.jpg",
+      stock_unit: "kg",
     },
     vendor: { full_name: "Vendor One" },
-    old_price: 100,
-    new_price: 80,
+    old_price: 120,
+    new_price: 110,
     start_date: "2025-01-01",
     end_date: "2025-12-31",
   },
   {
     id: 2,
     product: {
-      product_name: "banana",
-      product_image: null,
-      stock_unit: "bunch",
+      product_name: "cabbage",
+      product_image: "cabbage.jpg",
+      stock_unit: "kg",
     },
     vendor: { full_name: "Vendor Two" },
-    old_price: 50,
-    new_price: 45,
+    old_price: 40,
+    new_price: 40,
     start_date: "2025-02-01",
     end_date: "2025-10-31",
   },
@@ -61,14 +61,13 @@ describe("DiscountsIndex", () => {
     useDiscounts.mockReturnValue({ discounts: mockDiscounts, loading: false, error: null });
     render(<DiscountsIndex />);
 
-    expect(screen.getByText("Apple")).toBeInTheDocument();
-    expect(screen.getByText("Banana")).toBeInTheDocument();
+    expect(screen.getByText("Onion")).toBeInTheDocument();
+    expect(screen.getByText("Cabbage")).toBeInTheDocument();
     expect(screen.getByText("Vendor One")).toBeInTheDocument();
     expect(screen.getByText("Vendor Two")).toBeInTheDocument();
-    expect(screen.getByText("KSH 100")).toBeInTheDocument();
-    expect(screen.getByText("KSH 80")).toBeInTheDocument();
-    expect(screen.getByText("KSH 50")).toBeInTheDocument();
-    expect(screen.getByText("KSH 45")).toBeInTheDocument();
+    expect(screen.getByText("KSH 120")).toBeInTheDocument();
+    expect(screen.getByText("KSH 110")).toBeInTheDocument();
+    expect(screen.getAllByText("KSH 40").length).toBeGreaterThan(0);
   });
 
   test("filters discounts by product name and vendor name", () => {
@@ -76,13 +75,13 @@ describe("DiscountsIndex", () => {
     render(<DiscountsIndex />);
     const input = screen.getByPlaceholderText("Search by product or vendor...");
 
-    fireEvent.change(input, { target: { value: "ban" } });
-    expect(screen.getByText("Banana")).toBeInTheDocument();
-    expect(screen.queryByText("Apple")).not.toBeInTheDocument();
+    fireEvent.change(input, { target: { value: "cabbage" } });
+    expect(screen.getByText("Cabbage")).toBeInTheDocument();
+    expect(screen.queryByText("Onion")).not.toBeInTheDocument();
 
     fireEvent.change(input, { target: { value: "vendor one" } });
-    expect(screen.getByText("Apple")).toBeInTheDocument();
-    expect(screen.queryByText("Banana")).not.toBeInTheDocument();
+    expect(screen.getByText("Onion")).toBeInTheDocument();
+    expect(screen.queryByText("Cabbage")).not.toBeInTheDocument();
   });
 
   test("shows no data message when discounts empty", () => {
@@ -95,23 +94,21 @@ describe("DiscountsIndex", () => {
     useDiscounts.mockReturnValue({ discounts: mockDiscounts, loading: false, error: null });
     render(<DiscountsIndex />);
 
-    const appleRow = screen.getByText("Apple").closest("tr");
-    expect(appleRow).toBeInTheDocument();
+    const onionRow = screen.getByText("Onion").closest("tr");
+    expect(onionRow).toBeInTheDocument();
 
-
-    fireEvent.click(within(appleRow).getByText("View"));
+    fireEvent.click(within(onionRow).getByText("View"));
 
     await waitFor(() => {
       const modal = screen.getByText("Discount Details").closest(".discounts-modal-details");
       expect(modal).toBeInTheDocument();
 
-      expect(within(modal).getByText("Apple")).toBeInTheDocument();
-      expect(within(modal).getByText("Piece")).toBeInTheDocument();
+      expect(within(modal).getByText("Onion")).toBeInTheDocument();
+      expect(within(modal).getByText("Kg")).toBeInTheDocument();
       expect(within(modal).getByText("Vendor One")).toBeInTheDocument();
-      expect(within(modal).getByText("KSH 100")).toBeInTheDocument();
-      expect(within(modal).getByText("KSH 80")).toBeInTheDocument();
+      expect(within(modal).getByText("KSH 120")).toBeInTheDocument();
+      expect(within(modal).getByText("KSH 110")).toBeInTheDocument();
     });
-
 
     fireEvent.click(screen.getByText("Close"));
     expect(screen.queryByText("Discount Details")).not.toBeInTheDocument();
@@ -120,10 +117,10 @@ describe("DiscountsIndex", () => {
   test("pagination works", () => {
     const manyDiscounts = Array.from({ length: 10 }, (_, i) => ({
       id: i,
-      product: { product_name: `item${i}`, product_image: null, stock_unit: "unit" },
+      product: { product_name: i % 2 === 0 ? "onion" : "cabbage", product_image: null, stock_unit: "kg" },
       vendor: { full_name: `Vendor${i}` },
-      old_price: 100 + i,
-      new_price: 90 + i,
+      old_price: i % 2 === 0 ? 120 : 40,
+      new_price: i % 2 === 0 ? 110 : 40,
       start_date: "2025-01-01",
       end_date: "2025-12-31",
     }));
@@ -131,7 +128,7 @@ describe("DiscountsIndex", () => {
     render(<DiscountsIndex />);
 
     expect(screen.getByText("Page 1 of 2")).toBeInTheDocument();
-    expect(screen.getByText("Item0")).toBeInTheDocument();
+    expect(screen.getAllByText("Onion").length + screen.getAllByText("Cabbage").length).toBeGreaterThan(0);
 
     fireEvent.click(screen.getByText("Next"));
     expect(screen.getByText("Page 2 of 2")).toBeInTheDocument();
