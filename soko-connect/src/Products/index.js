@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useProducts } from "../hooks/usefetchproducts/index";
 import "./style.css";
 
@@ -12,12 +12,14 @@ function capitalize(str) {
 const ProductsIndex = () => {
   const { products: fetchedProducts, loading, error } = useProducts();
 
-  const capitalizedProducts = fetchedProducts.map((product) => ({
-    ...product,
-    product_name: capitalize(product.product_name),
-    category: capitalize(product.category),
-    stock_unit: capitalize(product.stock_unit),
-  }));
+  const capitalizedProducts = useMemo(() => {
+    return fetchedProducts.map((product) => ({
+      ...product,
+      product_name: capitalize(product.product_name),
+      category: capitalize(product.category),
+      stock_unit: capitalize(product.stock_unit),
+    }));
+  }, [fetchedProducts]);
 
   const [searchTerm, setSearchTerm] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("all");
@@ -72,17 +74,17 @@ const ProductsIndex = () => {
 
   return (
     <div className="products-container">
-      <div className="page-banner">
+      <div className="banner_products">
         <p>Product Listings and Inventory</p>
       </div>
 
-      <div className="search-container left-align">
+      <div className="search-products left-align">
         <input
           type="text"
           placeholder="Search products..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="search-input"
+          className="search-cat_product"
           aria-label="Search products"
         />
         <select
