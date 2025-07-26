@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import PersonIcon from "@mui/icons-material/Person";
@@ -8,7 +8,6 @@ import ReceiptIcon from "@mui/icons-material/Receipt";
 import StarIcon from "@mui/icons-material/Star";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import "./style.css";
-
 const sideNav = [
   { key: "dashboard", label: "Dashboard", icon: <BarChartIcon /> },
   { key: "customers", label: "Customers", icon: <PersonIcon /> },
