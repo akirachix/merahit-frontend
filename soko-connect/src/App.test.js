@@ -1,23 +1,52 @@
-import { render, screen } from '@testing-library/react';
-import App from './App';
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import App from "./App";
 
-jest.mock('./shared-components/Header/index', () => () => (
-  <header data-testid="header">Soko Connect Admin Dashboard</header>
+jest.mock("./shared-components/Header/index", () => () => <div data-testid="header">Header</div>);
+jest.mock("./shared-components/Sidebar/index", () => (props) => (
+  <div data-testid="sidebar">{props.open ? "Sidebar Open" : "Sidebar Closed"}</div>
 ));
+jest.mock("./Dashboard", () => () => <div data-testid="dashboard">Dashboard Content</div>);
+jest.mock("./Authentication", () => () => <div data-testid="login-page">Login Page</div>);
 
-jest.mock('./shared-components/Sidebar/index', () => () => (
-  <nav data-testid="sidebar" className="open">Sidebar</nav>
-));
+describe("App routing", () => {
+  beforeEach(() => {
+    jest.resetModules();
+  });
 
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  UNSAFE_logV6DeprecationWarnings: jest.fn(),
-}));
+  test("redirects from / to /login", () => {
+    window.history.pushState({}, "Test page", "/");
 
-describe('App Component', () => {
-  test('renders header and sidebar', () => {
     render(<App />);
-    expect(screen.getByTestId('header')).toBeInTheDocument();
-    expect(screen.getByTestId('sidebar')).toHaveClass('open');
+
+    expect(screen.getByTestId("login-page")).toBeInTheDocument();
+  });
+
+  test("shows login page at /login", () => {
+    window.history.pushState({}, "Test page", "/login");
+
+    render(<App />);
+
+    expect(screen.getByTestId("login-page")).toBeInTheDocument();
+  });
+
+  test("shows dashboard layout and content at /dashboard", () => {
+    window.history.pushState({}, "Test page", "/dashboard");
+
+    render(<App />);
+
+    expect(screen.getByTestId("header")).toBeInTheDocument();
+    expect(screen.getByTestId("sidebar")).toBeInTheDocument();
+    expect(screen.getByTestId("dashboard")).toBeInTheDocument();
+
+    expect(screen.getByTestId("sidebar")).toHaveTextContent("Sidebar Open");
+  });
+
+  test("unknown routes redirect to /login", () => {
+    window.history.pushState({}, "Test page", "/some/unknown/path");
+
+    render(<App />);
+
+    expect(screen.getByTestId("login-page")).toBeInTheDocument();
   });
 });
