@@ -7,7 +7,7 @@ jest.mock("./shared-components/Sidebar/index", () => (props) => (
   <div data-testid="sidebar">{props.open ? "Sidebar Open" : "Sidebar Closed"}</div>
 ));
 jest.mock("./Dashboard", () => () => <div data-testid="dashboard">Dashboard Content</div>);
-jest.mock("./Authentication", () => () => <div data-testid="login-page">Login Page</div>);
+jest.mock("./Login", () => () => <div data-testid="login-page">Login Page</div>);
 
 describe("App routing", () => {
   beforeEach(() => {

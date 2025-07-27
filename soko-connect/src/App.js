@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import Header from './shared-components/Header/index';
 import Sidebar from './shared-components/Sidebar/index';
 import Dashboard from './Dashboard';
-import LoginPage from './Authentication'; 
+import LoginPage from './Login'; 
 import './App.css';
 
 function App() {
