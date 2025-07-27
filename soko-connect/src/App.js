@@ -1,10 +1,15 @@
+
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
-import Header from './shared-components/Header/index';
-import Sidebar from './shared-components/Sidebar/index';
 import Dashboard from './Dashboard';
 import LoginPage from './Login'; 
-import './App.css';
+import Header from "./shared-components/Header/index";
+import Sidebar from "./shared-components/Sidebar/index";
+import Reviews from "./Reviews/index";
+import Orders from "./Orders/index";
+import Customers from "./Customers";
+import Vendors from "./Vendors";
+import "./App.css";
 
 function App() {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -24,7 +29,10 @@ function App() {
                 <main className={`main-content ${sidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
                   <Routes>
                     <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="*" element={<Navigate to="/login" replace />} />
+                    <Route path="/reviews" element={<Reviews />} />
+                    <Route path="/orders" element={<Orders />} />
+                    <Route path="/customers" element={<Customers />} />
+                    <Route path="/vendors" element={<Vendors />} />
                   </Routes>
                 </main>
               </div>

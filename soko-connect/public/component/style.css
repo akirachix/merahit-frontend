@@ -1,0 +1,120 @@
+.vendors-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.vendors-table {
+  width: 100%;
+  background: white;
+  border-collapse: collapse;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.vendors-table th,
+.vendors-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+.vendors-table th:nth-child(4),
+.vendors-table td:nth-child(4) {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.vendors-table th {
+  color: #4CAF50;
+}
+.vendors-table button {
+  padding: 5px 10px;
+  color: rgb(6, 58, 6);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.vendors-table button:hover {
+  background-color: #388E3C;
+  color: white;
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+  cursor: pointer;
+}
+.vendor-details {
+  width: 400px;
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: calc(50vh - 150px);
+  left: calc(50vw - 200px);
+  z-index: 2001;
+  cursor: default;
+  will-change: transform;
+}
+.vendor-details h2 {
+  color: #4CAF50;
+  margin-top: 0;
+}
+.vendor-details p {
+  margin: 10px 0;
+  font-size: 16px;
+}
+.vendor-details button {
+  padding: 8px 16px;
+  color: #4CAF50;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 80%;
+}
+.vendor-details button:hover {
+  background-color: #064109;
+  color:white;
+}
+.profile-picture {
+  max-width: 100px;
+  margin-top: 10px;
+  border-radius: 4px;
+}
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+.pagination button {
+  padding: 8px 12px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.pagination button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+.pagination button.active {
+  background-color: #388E3C;
+  font-weight: bold;
+}
+.loading,
+.error,
+.no-data {
+  padding: 20px;
+  text-align: center;
+  color: #333;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

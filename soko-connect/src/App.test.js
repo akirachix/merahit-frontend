@@ -41,12 +41,4 @@ describe("App routing", () => {
 
     expect(screen.getByTestId("sidebar")).toHaveTextContent("Sidebar Open");
   });
-
-  test("unknown routes redirect to /login", () => {
-    window.history.pushState({}, "Test page", "/some/unknown/path");
-
-    render(<App />);
-
-    expect(screen.getByTestId("login-page")).toBeInTheDocument();
-  });
 });

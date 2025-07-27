@@ -9,6 +9,7 @@ import StarIcon from "@mui/icons-material/Star";
 import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import "./style.css";
 
+
 const sideNav = [
   { key: "dashboard", label: "Dashboard", icon: <BarChartIcon /> },
   { key: "customers", label: "Customers", icon: <PersonIcon /> },
