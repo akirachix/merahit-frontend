@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import BarChartIcon from "@mui/icons-material/BarChart";
 import PersonIcon from "@mui/icons-material/Person";
@@ -50,4 +50,5 @@ const Sidebar = React.forwardRef(({ open, setSidebarOpen }, ref) => {
     </nav>
   );
 });
+
 export default Sidebar;
