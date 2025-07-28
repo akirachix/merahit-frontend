@@ -32,7 +32,5 @@ describe("App component routing and rendering", () => {
     render(<App />);
     const sidebar = screen.getByTestId("sidebar");
     expect(sidebar).toHaveClass("open");
-
-    
   });
 });

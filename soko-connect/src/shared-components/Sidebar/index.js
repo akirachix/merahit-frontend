@@ -49,4 +49,5 @@ const Sidebar = React.forwardRef(({ open, setSidebarOpen }, ref) => {
     </nav>
   );
 });
+
 export default Sidebar;
