@@ -8,7 +8,7 @@ export const useDiscounts = (period = "all") => {
 
   useEffect(() => {
     let mounted = true;
-    const endpoint = period === "all" ? "/discount/" : `/discount/?period=${period}`;
+    const endpoint = period === "all" ? "/discounts/" : `/discounts/?period=${period}`;
 
     const fetchDiscounts = async () => {
       setLoading(true);

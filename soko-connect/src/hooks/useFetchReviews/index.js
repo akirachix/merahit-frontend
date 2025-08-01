@@ -8,7 +8,7 @@ export const useReviews = () => {
     (async () => {
       try {
         setLoading(true);
-        const data = await fetchData("/review/");
+        const data = await fetchData("/reviews/");
         setReviews(data || []);
         setLoading(false);
       } catch (err) {

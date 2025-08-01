@@ -8,7 +8,7 @@ export const useProducts = (period = "all") => {
 
   useEffect(() => {
     let mounted = true;
-    const endpoint = period === "all" ? "/product/" : `/product/?period=${period}`;
+    const endpoint = period === "all" ? "/products/" : `/products/?period=${period}`;
 
     const fetchProducts = async () => {
       setLoading(true);
