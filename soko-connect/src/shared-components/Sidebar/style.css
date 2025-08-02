@@ -1,123 +1,192 @@
-.sidebar {
-  position: fixed;
-  top: 0; 
-  left: 0;
-  width: 250px;
-  height: 100vh;
-  background-color:  #e0d974; 
-  color: rgb(3, 75, 7);
-  transform: translateX(-100%); 
-  transition: transform 0.3s ease;
-  z-index: 999;
-}
-.sidebar.open {
-  transform: translateX(0); 
-}
-.sidebar-header {
-  padding: 70px 10px 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.sidebar-logo {
-  width: 130px; 
-  height:80px;
-  margin-bottom: 20px;
-  margin-top: 5%;
-}
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
 
-.sidebar li {
-  display: flex;
-  align-items: center;
-  padding: 10px 20px;
-  cursor: pointer;
-}
-
-.sidebar li:hover {
-  background-color: #218838; 
-  color: white;
-}
 
 .sidebar {
-  position: fixed;
-  top: 0; 
-  left: 0;
-  width: 250px;
-  height: 100vh;
-  background-color: #e0d974; 
-  color: rgb(3, 75, 7);
-  transform: translateX(-100%); 
-  transition: transform 0.3s ease;
-  z-index: 999;
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 250px;
+ height: 100vh;
+ background-color:  #e0d974;
+ color: rgb(3, 75, 7);
+ transform: translateX(-100%);
+ transition: transform 0.3s ease;
+ z-index: 999;
 }
-
 .sidebar.open {
-  transform: translateX(0); 
+ transform: translateX(0);
 }
-
 .sidebar-header {
-  padding: 70px 10px 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+ padding: 70px 10px 10px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
 }
-
 .sidebar-logo {
-  width: 130px; 
-  height: 80px;
-  margin-bottom: 20px;
-  margin-top: 5%;
+ width: 130px;
+ height:80px;
+ margin-bottom: 20px;
+ margin-top: 5%;
+}
+.sidebar ul {
+ list-style: none;
+ padding: 0;
+ margin: 0;
 }
 
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
 
 .sidebar li {
-  display: flex;
-  align-items: center;
-  padding: 10px 20px;
-  cursor: pointer;
+ display: flex;
+ align-items: center;
+ padding: 10px 20px;
+ cursor: pointer;
 }
 
+
 .sidebar li:hover {
-  background-color: #218838; 
-  color: white;
+ background-color: #218838;
+ color: white;
 }
+
+
+.sidebar {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 250px;
+ height: 100vh;
+ background-color: #e0d974;
+ color: rgb(3, 75, 7);
+ transform: translateX(-100%);
+ transition: transform 0.3s ease;
+ z-index: 999;
+}
+
+
+.sidebar.open {
+ transform: translateX(0);
+}
+
+
+.sidebar-header {
+ padding: 70px 10px 10px;
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+}
+
+
+.sidebar-logo {
+ width: 130px;
+ height: 80px;
+ margin-bottom: 20px;
+ margin-top: 5%;
+}
+
+
+.sidebar ul {
+ list-style: none;
+ padding: 0;
+ margin: 0;
+}
+
+
+.sidebar li {
+ display: flex;
+ align-items: center;
+ padding: 10px 20px;
+ cursor: pointer;
+}
+
+
+.sidebar li:hover {
+ background-color: #218838;
+ color: white;
+}
+
 
 .sidebar li.active{
-  background-color: #1e7e34; 
-  color:white;
+ background-color: #1e7e34;
+ color:white;
 }
+
 
 .sidebar li:hover .sidebar-icon svg {
-  fill: white !important;
+ fill: white !important;
 }
+
 
 .sidebar li.active .sidebar-icon svg {
-  fill: white !important;
+ fill: white !important;
 }
+
 
 .sidebar-icon {
-  margin-right: 10px;
-  color: rgb(17, 13, 13); 
+ margin-right: 10px;
+ color: rgb(17, 13, 13);
 }
 
+
 .sidebar-label {
-  font-size: 1rem;
+ font-size: 1rem;
 }
 .sidebar-icon {
-  margin-right: 10px;
-  color: rgb(17, 13, 13); 
+ margin-right: 10px;
+ color: rgb(17, 13, 13);
 }
 
+
 .sidebar-label {
-  font-size: 1rem;
+ font-size: 1rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.sidebar-item.logout {
+ margin-top: 100%;
+}
+
+
+.logout-popup {
+ position: fixed;
+ top: 90%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ padding: 20px;
+ border-radius: 8px;
+ background:white;
+ z-index: 1000;
+ text-align: center;
+}
+.logout-buttons {
+ display: flex;
+ gap: 10px;
+ justify-content: center;
+ margin-top: 10px;
+}
+.logout-confirm {
+ padding: 8px 16px;
+ background: #4caf50;
+ color: white;
+ border: none;
+ border-radius: 4px;
+ cursor: pointer;
+}
+
+
+.logout-cancel {
+ padding: 8px 16px;
+ background: #f44336;
+ color: white;
+ border: none;
+ border-radius: 4px;
+ cursor: pointer;
 }

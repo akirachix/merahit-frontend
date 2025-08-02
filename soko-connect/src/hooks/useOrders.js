@@ -8,7 +8,7 @@ export const useOrders = (period = "all") => {
 
   useEffect(() => {
     let mounted = true;
-    const endpoint = period === "all" ? "/order/" : `/order/?period=${period}`;
+    const endpoint = period === "all" ? "/orders/" : `/orders/?period=${period}`;
 
     const fetchOrders = async () => {
       setLoading(true);

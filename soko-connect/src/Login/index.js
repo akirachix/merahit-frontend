@@ -1,26 +1,42 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+
+import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEye } from '@fortawesome/free-solid-svg-icons';
+import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth';
 import './style.css';
+
 
 function LoginPage() {
   const [form, setForm] = useState({ username: '', password: '' });
   const [showPassword, setShowPassword] = useState(false);
+  const { login, errorMessage, setErrorMessage } = useAuth();
   const navigate = useNavigate();
+
+
+  useEffect(() => {
+    if (localStorage.getItem("access_token")) {
+      navigate('/dashboard');
+    }
+  }, [navigate]);
+
 
   const handleChange = (e) => {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  const handleSubmit = (e) => {
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    navigate('/dashboard');
+    setErrorMessage('');
+    await login(form.phone_number, form.password);
   };
+
 
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
   };
+
 
   return (
     <div className="login-bg">
@@ -37,13 +53,13 @@ function LoginPage() {
             Admin Login
           </h2>
           <input
-            type="text"
-            name="username"
-            value={form.username}
+            type="tel"
+            name="phone_number"
+            value={form.phone_number}
             onChange={handleChange}
-            placeholder="Username"
+            placeholder="Phone Number"
             style={{ fontSize: '1.2rem', padding: '12px', marginBottom: '1rem' }}
-            aria-label="Username"
+            aria-label="Phone Number"
             required
           />
           <div className="password-container">
@@ -65,9 +81,14 @@ function LoginPage() {
               tabIndex={0}
               onKeyDown={(e) => e.key === 'Enter' && togglePasswordVisibility()}
             >
-              <FontAwesomeIcon icon={faEye} />
+              <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} />
             </span>
           </div>
+          {errorMessage && (
+            <p style={{ color: 'red', marginTop: '10px' }} role="alert">
+              {errorMessage}
+            </p>
+          )}
           <button
             type="submit"
             style={{ fontSize: '1.2rem', padding: '12px', marginTop: '1.5rem' }}
@@ -81,6 +102,7 @@ function LoginPage() {
   );
 }
 
+<<<<<<< HEAD
 export default LoginPage;
 
 // import React, { useState } from 'react';
@@ -186,3 +208,7 @@ export default LoginPage;
 // }
 
 // export default LoginPage;
+=======
+
+export default LoginPage;
+>>>>>>> 4254aca7ad02b67fa94d75a298086c4c69b2ddd0

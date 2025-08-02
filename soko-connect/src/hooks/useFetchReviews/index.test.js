@@ -38,7 +38,7 @@ describe("useReviews hook", () => {
       expect(window.hookResult.reviews).toEqual(mockReviews);
     });
 
-    expect(fetchData).toHaveBeenCalledWith("/review/");
+    expect(fetchData).toHaveBeenCalledWith("/reviews/");
   });
 
   test("handles fetch error correctly", async () => {
@@ -53,6 +53,6 @@ describe("useReviews hook", () => {
       expect(window.hookResult.error).toBe(errorMessage);
     });
 
-    expect(fetchData).toHaveBeenCalledWith("/review/");
+    expect(fetchData).toHaveBeenCalledWith("/reviews/");
   });
 });
