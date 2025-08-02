@@ -6,7 +6,7 @@
 }
 
 
-.page-banner {
+.page-banner-vendor {
   color: rgb(3, 102, 13);
   padding: 20px;
   border-radius: 8px;
@@ -15,7 +15,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.page-banner h1 {
+.page-banner-vendor h1 {
   font-size: 28px;
   margin: auto;
 }
@@ -65,7 +65,7 @@
 .vendors-table td {
   padding: 8px;
   text-align: left;
-  font-size: 17px;
+  font-size: 18px;
   border-bottom: 1px solid #ddd;
   vertical-align: middle;
 }
@@ -249,15 +249,14 @@
   font-weight: 600;
 }
 
-/* Responsive for 1025px up to 1400px */
-@media only screen and (min-width: 1024px) and (max-width: 1400px) {
+@media only screen and (min-width: 1025px) and (max-width: 1400px) {
   .vendors-container {
     min-height: calc(100vh - 220px);
     margin-left: 1.5vw;
     padding: 15px 18px;
   }
 
-  .page-banner h1 {
+  .page-banner-vednor h1 {
     font-size: 24px;
   }
 
@@ -275,7 +274,7 @@
 
   .vendors-table th,
   .vendors-table td {
-    padding: 6px 10px;
+    padding: 10px 12px;
     font-size: 15px;
   }
 
@@ -328,7 +327,6 @@
   }
 }
 
-/* Responsive for 1401px up to 1700px */
 @media only screen and (min-width: 1401px) and (max-width: 1700px) {
   .vendors-container {
     min-height: calc(100vh - 200px);
@@ -336,7 +334,7 @@
     padding: 20px 25px;
   }
 
-  .page-banner h1 {
+  .page-banner-vendor h1 {
     font-size: 28px;
   }
 
@@ -404,5 +402,164 @@
     padding: 8px 16px;
     font-size: 15px;
     align-self: flex-end;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .vendors-container {
+    background-color: white;
+    padding: 0px 0px;
+    min-height: calc(100vh - 220px);
+    margin-left: 1vw;
+    box-sizing: border-box;
+  }
+
+  .page-banner-vendor {
+    padding: 4px 4px;
+    margin-bottom: 10px;
+  }
+
+  .page-banner-vendor h1 {
+    font-size: 22px;
+    margin-left: 40%;
+  }
+
+  .search-container {
+    width: 100%;
+    margin-bottom: 2px;
+    padding-left: 0;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .search-input {
+    width: 100%;
+    max-width: 280px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 6px;
+  }
+
+  .vendors-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .vendors-table th,
+  .vendors-table td {
+    padding: 6px 10px;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: middle;
+    text-align: left;
+  }
+
+  .vendors-table th:nth-child(4),
+  .vendors-table td:nth-child(4) {
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .vendors-table th {
+    color: #4caf50;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .vendors-table td img.profile-picture-circle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border-width: 1.5px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .vendors-table button {
+    padding: 5px 10px;
+    font-size: 13px;
+    border-radius: 4px;
+  }
+
+  .vendors-table button:hover,
+  .vendors-table button:focus {
+    background-color: #388e3c;
+    outline: none;
+    color: white;
+  }
+
+
+  .pagination {
+    gap: 0.75rem;
+    margin-top: 16px;
+    justify-content: center;
+  }
+
+  .pagination button {
+    padding: 6px 10px;
+    font-size: 13px;
+    border-radius: 4px;
+  }
+
+  .pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+  .pagination button.active {
+    background-color: #388e3c;
+    font-weight: 700;
+  }
+
+  .current-page {
+    font-size: 13px;
+  }
+
+  .vendor-details {
+    max-width: 360px;
+    width: 100%;
+    padding: 16px 18px;
+    box-sizing: border-box;
+  }
+
+  .vendor-details h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .profile-picture-circle-modal {
+    width: 80px;
+    height: 80px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  }
+
+
+
+  .vendor-details p {
+    font-size: 14px;
+    margin: 6px 0;
+  }
+
+  .vendor-details button {
+    padding: 6px 14px;
+    font-size: 14px;
+    align-self: flex-end;
+    border-radius: 4px;
+  }
+
+  .vendor-details button:hover,
+  .vendor-details button:focus {
+    background-color: #064109;
+    outline: none;
+  }
+
+  .loading,
+  .error,
+  .no-data {
+    padding: 16px;
+    font-size: 14px;
   }
 }

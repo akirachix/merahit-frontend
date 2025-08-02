@@ -42,7 +42,7 @@
   padding: 5px 25px !important;
   border: 2px solid #4caf50;
   border-radius: 8px;
-  font-size: 17px;
+  font-size: 18px;
   margin-left: -2%;
   box-sizing: border-box;
   outline: none;
@@ -94,7 +94,7 @@
   padding: 8px 16px;
   text-align: center;
   border-bottom: 1px solid #ddd;
-  font-size: 17px;
+  font-size: 18px;
   vertical-align: middle;
 }
 
@@ -106,14 +106,14 @@
 }
 
 .products-table button {
-  padding: 7px 16px;
+  padding: 5px 12px;
   background-color: #4caf50;
   color: white;
   border: none;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 600;
-  font-size: 16px;
+  font-size: 15px;
   transition: background-color 0.3s ease;
 }
 
@@ -259,19 +259,177 @@
   background-color: #388e3c;
 
 }
+@media only screen and (max-width: 1024px) {
+  .products-container {
+    background-color: white;
+    height: auto;          
+    padding: 0px 0px;     
+    overflow: hidden;
+  }
+  
+  .banner_products {
+    font-size: 22px;       
+    margin-left: 4%;       
+    padding-bottom: 6px;
+    color: rgb(3, 102, 13);
+  }
+  
+  .search-products.left-align {
+    width: 90%;
+    max-width: 100%;
+    gap: 45%;             
+    margin-bottom: 10px;
+    padding-left: 8px;
+    justify-content: flex-start;
+  }
+  
+  .search-box-wrapper {
+    width: 100%;          
+    max-width: 280px;
+  }
+  
+  .search-cat_product {
+    width: 100%;           
+    padding: 5px 20px !important;
+    font-size: 14px;
+    margin-left: 0;
+    box-sizing: border-box;
+  }
+  
+  .category-filter {
+    font-size: 13px;
+    padding: 6px 18px !important;
+    border-radius: 8px;
+  }
+  
+  .products-content {
+    width: 100%;
+    max-width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    overflow: visible;
+    font-size: 14px;
+  }
+  
+  .products-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    text-align: center;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+  
+  .products-table th,
+  .products-table td {
+    padding: 4px 8px;
+    font-size: 14px;
+    vertical-align: middle;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  .products-table th {
+    color: #4caf50;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  
+  .products-table button {
+    padding: 3px 8px;
+    font-size: 13px;
+    border-radius: 6px;
+  }
+  
+  .products-table button:hover {
+    background-color: #388e3c;
+    color: white;
+  }
+  
+  .product-thumb-image {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1.5px solid #4caf50;
+  }
+  
+  .pagination {
+    gap: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .pagination button {
+    padding: 8px 14px;
+    font-size: 14px;
+    border-radius: 8px;
+    min-width: 38px;
+  }
+  
+  .page-number {
+    font-weight: 700;
+    color: #4caf50;
+    font-size: 16px;
+  }
+  
+  .loading,
+  .error,
+  .no-data {
+    padding: 20px;
+    font-size: 14px;
+    max-width: 100%;
+    margin: 20px auto;
+  }
+  
+  .modal-overlay {
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  .product-details {
+    padding: 20px 18px;
+    width: 95vw;
+    max-width: 340px;
+    max-height: 85vh;
+    border-radius: 10px;
+  }
+  
+  
+  .modal-product-image-circle {
+    width: 90px;
+    height: 90px;
+    border-width: 2px;
+  }
+  
+  .modal-product-info h2 {
+    font-size: 20px;
+  }
+  
+  .modal-product-info p {
+    font-size: 13px;
+    margin: 8px 0;
+  }
+  
+  .product-details button {
+    padding: 8px 18px;
+    font-size: 13px;
+    margin-left: 60%;
+  }
+}
 
-/* Responsive styles for Products page */
 
-/* From 1025px up to 1400px: mainly smaller product thumbnail images, fonts, paddings */
-@media only screen and (min-width: 1024px) and (max-width: 1400px) {
+@media only screen and (min-width: 1025px) and (max-width: 1400px) {
   .products-container {
     padding: 10px 20px;
-    height: auto; /* let height adjust if needed */
+    height: auto;
   }
 
   .products-content {
-    max-height: 75vh; /* allow vertical scrolling if content exceeds */
-    overflow-y: auto;
+    max-height: 80vh;
+    overflow-y: hidden;
     font-size: 15px;
   }
 
@@ -283,7 +441,7 @@
 
   .products-table th,
   .products-table td {
-    padding: 6px 12px;
+    padding: 10px 16px;
     font-size: 15px;
   }
 
@@ -302,7 +460,7 @@
 
   .search-products.left-align {
     width: 89%;
-    gap: 45%; /* reduce gap for smaller widths */
+    gap: 45%;
     margin-bottom: 25px;
   }
 
@@ -336,7 +494,6 @@
   }
 }
 
-/* From 1400px up to 1700px: full responsiveness & layout adjustments */
 @media only screen and (min-width: 1401px) and (max-width: 1700px) {
   .products-container {
     padding: 15px 30px;

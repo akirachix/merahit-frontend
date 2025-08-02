@@ -10,7 +10,7 @@ export const useDiscounts = () => {
     (async () => {
       try {
         setLoading(true);
-        const discountsData = await fetchData("/discount/");
+        const discountsData = await fetchData("/discounts/");
         setDiscounts(discountsData || []);
         setLoading(false);
       } catch (err) {

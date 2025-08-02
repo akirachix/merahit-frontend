@@ -11,7 +11,7 @@ export const useProducts = () => {
     (async () => {
       try {
         setLoading(true);
-        const data = await fetchData("/product/");
+        const data = await fetchData("/products/");
         setProducts(data || []);
         setLoading(false);
       } catch (err) {

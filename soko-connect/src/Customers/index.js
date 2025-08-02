@@ -66,7 +66,7 @@ const Customers = () => {
 
   return (
     <div className="customers-container">
-      <div className="page-banner">
+      <div className="page-banner-customer">
         <h1>Customers</h1>
       </div>
       <div className="customers-content">

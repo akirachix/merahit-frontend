@@ -84,7 +84,7 @@
   padding: 5px 16px;
   text-align: center;
   border-bottom: 1px solid #ddd;
-  font-size: 17px;
+  font-size: 18px;
 }
 
 .discounts-main-table th {
@@ -272,34 +272,30 @@
 
 @media (max-width: 1024px) {
   .discounts-wrapper {
-    padding: 8px 6px;
+    padding: 4px 3px;
     height: auto;
   }
 
   .discounts-header-banner {
     font-size: 22px;
-    padding: 12px 10px;
+    padding: 6px 4px;
     margin-left: 2%;
     max-width: 100%;
   }
 
   .discounts-search-container {
-    flex-direction: column;
-    align-items: stretch;
-    max-width: 100%;
-    gap: 10px;
-    margin-left: 0;
-    padding-left: 0;
-    height: auto;
+   margin-left: -60%;
+    max-width: 40%;
   }
   .discounts-view-button{
     font-size: 12px;
+    padding:4px 10px;
+
   }
 
   .discounts-search-input {
-    width: 100%;
-    font-size: 15px;
-    margin-top: 0;
+    font-size: 14px;
+     padding: 4px 25px;
   }
 
   .discounts-content-area {
@@ -310,7 +306,7 @@
   .discounts-main-table th,
   .discounts-main-table td {
     padding: 4px 8px;
-    font-size: 13px;
+    font-size: 14px;
   }
 
   .discounts-main-table th {
@@ -318,8 +314,8 @@
   }
 
   .discounts-product-image-thumb {
-    width: 36px;
-    height: 36px;
+    width: 32px;
+    height: 32px;
   }
 
   .discounts-pagination {
@@ -327,8 +323,8 @@
   }
 
   .discounts-page-button {
-    padding: 8px 12px;
-    font-size: 15px;
+    padding: 6px 11px;
+    font-size: 14px;
   }
 
   .discounts-page-number {
@@ -336,13 +332,13 @@
   }
 
   .discounts-modal-details {
-    width: 96vw;
-    padding: 18px 6px;
+    width: 40%;
+    padding: 10px 6px;
   }
 
   .discounts-modal-product-image-circle {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
   }
 
   .discounts-modal-product-info h2 {
@@ -354,8 +350,8 @@
   }
 
   .discounts-close-button {
-    margin-left: 0;
-    padding: 8px 18px;
+    margin-left: 60%;
+   
     font-size: 13px;
   }
 
@@ -366,7 +362,7 @@
   }
 }
 
-@media (min-width: 1020px) and (max-width:1400px) {
+@media (min-width: 1025px) and (max-width:1400px) {
 .discounts-header-banner{
   position: relative;
 }
@@ -390,9 +386,9 @@
   .discounts-search-container {
     flex-direction: column;
     align-items: stretch;
-    max-width: 100%;
+    max-width: 70%;
     gap: 10px;
-    margin-left: 0;
+    margin-left: -25%;
     padding-left: 0;
     height: auto;
   }
@@ -402,7 +398,7 @@
 
   .discounts-search-input {
     width: 40%;
-    font-size: 12px;
+    font-size: 14px;
     margin-top: 0;
   }
 
