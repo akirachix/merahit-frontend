@@ -1,34 +1,29 @@
 const baseUrl = process.env.REACT_APP_BASE_URL;
 
-export const fetchData = async (endpoint) => {
-  if (!baseUrl) {
-    throw new Error("API base URL is not defined in environment variables.");
-  }
+export const fetchData = async (endpoint, method = 'GET', body = null) => {
+
+  if (!baseUrl) throw new Error("API base URL is not defined in environment variables.");
+
   const cleanBaseUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
   const cleanEndpoint = endpoint.startsWith('/') ? endpoint : '/' + endpoint;
   const url = `${cleanBaseUrl}${cleanEndpoint}`;
+  const token = localStorage.getItem("access_token");
 
-  console.log("Fetching URL:", url);
+  const headers = {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+  };
+  if (token) headers.Authorization = `Token ${token}`;
 
   try {
     const response = await fetch(url, {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("access_token") || ""}`,
-        "Content-Type": "application/json",
-      },
+      method,
+      headers,
+      body: body ? JSON.stringify(body) : undefined,
     });
-
-    if (!response.ok) {
-      console.error(`Error fetching ${url}: Status ${response.status}`);
-      throw new Error(`Something went wrong: ${response.status}`);
-    }
-
-    const result = await response.json();
-    console.log(`Response from ${url}:`, result);
-
-    return Array.isArray(result) ? result : [];
+    if (!response.ok) throw new Error(`Something went wrong: ${response.status}`);
+    return await response.json();
   } catch (error) {
-    console.error(`Error fetching ${endpoint}:`, error.message);
     throw new Error(error.message || "An error occurred");
   }
 };

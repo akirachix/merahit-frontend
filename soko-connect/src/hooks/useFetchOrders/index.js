@@ -16,7 +16,7 @@ export const useOrders = () => {
       try {
         setLoading(true);
         setError(null);
-        const data = await fetchData("/order/");
+        const data = await fetchData("/orders/");
         const ordersList = Array.isArray(data)
           ? data
           : (data && Array.isArray(data.results) ? data.results : []);

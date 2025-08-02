@@ -55,7 +55,7 @@ describe("useOrders hook", () => {
       expect(window.hookResult.orders).toEqual(mockOrders);
     });
 
-    expect(fetchData).toHaveBeenCalledWith("/order/");
+    expect(fetchData).toHaveBeenCalledWith("/orders/");
   });
 
   test("handles fetch error correctly", async () => {
@@ -72,7 +72,7 @@ describe("useOrders hook", () => {
       expect(window.hookResult.error).toBe(errorMessage);
     });
 
-    expect(fetchData).toHaveBeenCalledWith("/order/");
+    expect(fetchData).toHaveBeenCalledWith("/orders/");
   });
 
   test("fetchOrderDetails returns empty object (Promise)", async () => {

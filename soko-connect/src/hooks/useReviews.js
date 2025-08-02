@@ -8,7 +8,7 @@ export const useReviews = (period = "all") => {
 
   useEffect(() => {
     let mounted = true;
-    const endpoint = period === "all" ? "/review/" : `/review/?period=${period}`;
+    const endpoint = period === "all" ? "/reviews/" : `/reviews/?period=${period}`;
 
     const fetchReviews = async () => {
       setLoading(true);
