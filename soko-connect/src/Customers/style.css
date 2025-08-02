@@ -1,11 +1,6 @@
 
-body{
-  overflow-x: hidden;
-
-}
 .customers-container {
-  min-height: calc(100vh - 350px);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-height: calc(100vh - 200px);
    margin-left: 3vw;
 }
 
@@ -37,13 +32,16 @@ body{
 
 .customers-table th,
 .customers-table td {
-  padding: 10px;
+  padding: 8px;
   text-align: left;
+  font-size: 17px;
   border-bottom: 1px solid #ddd;
 }
 
 .customers-table th {
   color: #4CAF50;
+  font-size: 21px;
+  font-weight: 500;
 }
 
 .customers-table button {
@@ -59,12 +57,20 @@ body{
   background-color: #388E3C;
 }
 
-.search-container.left-align {
+.search-customer.left-align {
   display: flex;
   justify-content: flex-start;
   margin-bottom: 1rem;
   padding-left: 0;
   width: 100%;
+}
+.search-input-customer{
+   width: 25%;
+    min-width: 0;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
 }
 
 .profile-picture-circle {
@@ -184,8 +190,185 @@ body{
   background: white;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
 }
 
+@media only screen and (min-width:1025px) {
+
+ 
+
+  html,
+  body {
+    height: 100%;
+    /* overflow-y: auto; */
+  }
+
+  .customers-content {
+    max-height: 80vh;
+    overflow-y: auto;
+
+  }
 
 
+
+}
+/* Responsive for 1025px up to 1400px */
+@media only screen and (min-width: 1024px) and (max-width: 1400px) {
+  .customers-container {
+    min-height: calc(100vh - 220px);
+    margin-left: 2vw;
+  }
+
+  .page-banner h1 {
+    font-size: 24px;
+  }
+
+  .search-customer.left-align {
+    width: 100%;
+    margin-bottom: 0.8rem;
+  }
+
+  .search-input-customer {
+    width: 35%;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+
+  .customers-table th,
+  .customers-table td {
+    padding: 8px 10px;
+    font-size: 15px;
+  }
+
+  .customers-table th {
+    font-weight: 600;
+  }
+
+  .profile-picture-circle {
+    width: 42px;
+    height: 42px;
+    border-width: 1.8px;
+  }
+
+  .pagination {
+    gap: 0.75rem;
+    margin-top: 0.8rem;
+  }
+
+  .pagination button {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  .current-page {
+    font-size: 14px;
+  }
+
+  .customer-details {
+    width: 360px;
+    padding: 15px 18px;
+    top: calc(50vh - 130px);
+    left: calc(50vw - 180px);
+  }
+
+  .customer-details h2 {
+    font-size: 20px;
+  }
+
+  .profile-picture-circle-modal {
+    width: 80px;
+    height: 80px;
+  }
+
+  .customer-details p {
+    font-size: 14px;
+  }
+
+  .customer-details button {
+    padding: 6px 14px;
+    margin-left: 70%;
+    font-size: 14px;
+  }
+}
+
+/* Responsive for 1401px up to 1700px */
+@media only screen and (min-width: 1401px) and (max-width: 1700px) {
+  .customers-container {
+    min-height: calc(100vh - 200px);
+    margin-left: 3vw;
+  }
+
+  .page-banner h1 {
+    font-size: 28px;
+  }
+
+  .search-customer.left-align {
+    width: 40%;
+    margin-bottom: 1rem;
+  }
+
+  .search-input-customer {
+    width: 40%;
+    font-size: 15px;
+    padding: 10px 15px;
+    border-radius: 10px;
+  }
+
+  .customers-table th,
+  .customers-table td {
+    padding: 10px 12px;
+    font-size: 16px;
+  }
+
+  .customers-table th {
+    font-weight: 600;
+  }
+
+  .profile-picture-circle {
+    width: 48px;
+    height: 48px;
+    border-width: 2px;
+  }
+
+  .pagination {
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .pagination button {
+    padding: 8px 14px;
+    font-size: 15px;
+  }
+
+  .current-page {
+    font-size: 15px;
+  }
+
+  .customer-details {
+    width: 400px;
+    padding: 20px;
+    top: calc(50vh - 150px);
+    left: calc(50vw - 200px);
+  }
+
+  .customer-details h2 {
+    font-size: 24px;
+  }
+
+  .profile-picture-circle-modal {
+    width: 100px;
+    height: 100px;
+  }
+
+  .customer-details p {
+    font-size: 15px;
+  }
+
+  .customer-details button {
+    padding: 8px 16px;
+    margin-left: 80%;
+    font-size: 15px;
+  }
+}
 

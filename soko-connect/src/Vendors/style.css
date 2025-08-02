@@ -1,8 +1,5 @@
-body{
-  overflow: hidden;
-}
 .vendors-container {
-  background-color: white; 
+  background-color: white;
   padding: 20px;
   min-height: calc(100vh - 200px);
   margin-left: 2vw;
@@ -15,7 +12,7 @@ body{
   border-radius: 8px;
   margin-bottom: 20px;
   background: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .page-banner h1 {
@@ -35,7 +32,7 @@ body{
 
 .search-container {
   display: flex;
-  justify-content: flex-start; 
+  justify-content: flex-start;
   margin-bottom: 20px;
   padding-left: 0;
   width: 100%;
@@ -66,10 +63,11 @@ body{
 
 .vendors-table th,
 .vendors-table td {
-  padding: 10px;
+  padding: 8px;
   text-align: left;
+  font-size: 17px;
   border-bottom: 1px solid #ddd;
-  vertical-align: middle; 
+  vertical-align: middle;
 }
 
 
@@ -84,6 +82,8 @@ body{
 
 .vendors-table th {
   color: #4CAF50;
+  font-size: 21px;
+  font-weight: 500;
 }
 
 .vendors-table td img.profile-picture-circle {
@@ -128,11 +128,11 @@ body{
   justify-content: center;
   align-items: center;
 
-  padding: 20px; 
+  padding: 20px;
 }
 
 .vendor-details {
-  max-width: 430px; 
+  max-width: 430px;
   width: 100%;
   background: white;
   padding: 20px;
@@ -172,7 +172,7 @@ body{
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
-  box-shadow: 0 0 5px rgba(0,0,0,0.15);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -247,4 +247,162 @@ body{
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-weight: 600;
-} 
+}
+
+/* Responsive for 1025px up to 1400px */
+@media only screen and (min-width: 1024px) and (max-width: 1400px) {
+  .vendors-container {
+    min-height: calc(100vh - 220px);
+    margin-left: 1.5vw;
+    padding: 15px 18px;
+  }
+
+  .page-banner h1 {
+    font-size: 24px;
+  }
+
+  .search-container {
+    width: 100%;
+    margin-bottom: 0.8rem;
+  }
+
+  .search-input {
+    width: 35%;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+
+  .vendors-table th,
+  .vendors-table td {
+    padding: 6px 10px;
+    font-size: 15px;
+  }
+
+  .vendors-table th {
+    font-weight: 600;
+  }
+
+  .vendors-table td img.profile-picture-circle {
+    width: 42px;
+    height: 42px;
+    border-width: 1.8px;
+  }
+
+  .pagination {
+    gap: 0.75rem;
+    margin-top: 0.8rem;
+  }
+
+  .pagination button {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  .current-page {
+    font-size: 14px;
+  }
+
+  .vendor-details {
+    max-width: 360px;
+    padding: 15px 18px;
+  }
+
+  .vendor-details h2 {
+    font-size: 20px;
+  }
+
+  .profile-picture-circle-modal {
+    width: 80px;
+    height: 80px;
+  }
+
+  .vendor-details p {
+    font-size: 14px;
+  }
+
+  .vendor-details button {
+    padding: 6px 14px;
+    font-size: 14px;
+    align-self: flex-end;
+  }
+}
+
+/* Responsive for 1401px up to 1700px */
+@media only screen and (min-width: 1401px) and (max-width: 1700px) {
+  .vendors-container {
+    min-height: calc(100vh - 200px);
+    margin-left: 2vw;
+    padding: 20px 25px;
+  }
+
+  .page-banner h1 {
+    font-size: 28px;
+  }
+
+  .search-container {
+    width: 40%;
+    margin-bottom: 1rem;
+  }
+
+  .search-input {
+    width: 40%;
+    font-size: 16px;
+    padding: 10px 14px;
+    border-radius: 10px;
+  }
+
+  .vendors-table th,
+  .vendors-table td {
+    padding: 8px 12px;
+    font-size: 16px;
+  }
+
+  .vendors-table th {
+    font-weight: 600;
+  }
+  
+  .vendors-table td img.profile-picture-circle {
+    width: 48px;
+    height: 48px;
+    border-width: 2px;
+  }
+
+  .pagination {
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .pagination button {
+    padding: 8px 14px;
+    font-size: 15px;
+  }
+
+  .current-page {
+    font-size: 15px;
+  }
+
+  .vendor-details {
+    max-width: 430px;
+    padding: 20px 25px;
+  }
+
+  .vendor-details h2 {
+    font-size: 24px;
+  }
+
+  .profile-picture-circle-modal {
+    width: 100px;
+    height: 100px;
+  }
+
+  .vendor-details p {
+    font-size: 15px;
+  }
+
+  .vendor-details button {
+    padding: 8px 16px;
+    font-size: 15px;
+    align-self: flex-end;
+  }
+}

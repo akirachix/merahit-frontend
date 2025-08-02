@@ -1,10 +1,10 @@
 .reviews-container {
   min-height: calc(100vh - 350px);
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
   color: #2f4f2f;
 }
 
-.reviews-container > h1 {
+.reviews-container>h1 {
   margin-top: 5px;
   margin-left: 5%;
 }
@@ -17,20 +17,20 @@
 }
 
 .filter-container {
-  font-size: 20px; 
+  font-size: 20px;
   color: #3b8d21;
   font-weight: 700;
   margin-left: 7px;
   margin-bottom: 25px;
   display: flex;
   align-items: center;
-  gap: 10px; 
+  gap: 10px;
 }
 
 .filter-container select {
-  font-size: 18px; 
+  font-size: 18px;
   padding: 10px 18px;
-  width: 140px; 
+  width: 140px;
   border-radius: 8px;
   color: #2f4f2f;
   font-weight: 600;
@@ -62,6 +62,7 @@
   background-color: #e9f0de;
   font-weight: 600;
   text-transform: uppercase;
+  font-size: 21px;
   letter-spacing: 0.03em;
 }
 
@@ -118,7 +119,7 @@
 }
 
 .review-details h2 {
-  color: #000000; 
+  color: #000000;
   margin-top: 0;
   margin-bottom: 25px;
   font-weight: 800;
@@ -183,9 +184,9 @@
 }
 
 .pagination button:disabled {
-  background-color: #a5ca8b; 
+  background-color: #a5ca8b;
   cursor: not-allowed;
-  color: #547923; 
+  color: #547923;
   box-shadow: none;
 }
 
@@ -215,7 +216,7 @@
   color: #406030;
   background: #e6f0d9;
   border-radius: 8px;
-  border: 1px solid #a5ca8b; 
+  border: 1px solid #a5ca8b;
   font-size: 20px;
   font-weight: 600;
 }
@@ -237,12 +238,12 @@ button:focus {
 
 
 .status-pending {
-  color: #f0ad4e; 
+  color: #f0ad4e;
   font-weight: 700;
 }
 
 .status-approved {
-  color: #4caf50; 
+  color: #4caf50;
   font-weight: 700;
 }
 
@@ -250,6 +251,7 @@ button:focus {
   color: #d32f2f;
   font-weight: 700;
 }
+
 #ratingFilter {
   padding: 8px 12px;
   font-size: 16px;
@@ -261,23 +263,227 @@ button:focus {
   transition: border-color 0.3s ease;
   min-width: 150px;
 }
-@media (max-width: 600px) {
-  .review-details {
-    width: 90%;
-    padding: 20px;
-  }
+
+/* Responsive from 1024px up to 1400px */
+@media only screen and (min-width: 1024px) and (max-width: 1400px) {
   .reviews-container {
-    padding: 20px 15px;
+    min-height: calc(100vh - 380px);
+    font-size: 15px;
+    color: #2f4f2f;
+    padding: 2% 3%;
   }
+
+  .reviews-container > h1 {
+    font-size: 24px;
+    margin-top: 8px;
+    margin-left: 3%;
+  }
+
+  .reviews-content {
+    width: 95%;
+    max-height: 75vh;
+    overflow-y: auto;
+  }
+
+  .filter-container {
+    font-size: 18px;
+    margin-left: 5px;
+    margin-bottom: 20px;
+    gap: 8px;
+  }
+
+  .filter-container select {
+    font-size: 16px;
+    padding: 8px 16px;
+    width: 130px;
+    border-radius: 6px;
+  }
+
+  .reviews-table {
+    font-size: 15px;
+  }
+
   .reviews-table th,
   .reviews-table td {
-    padding: 12px 10px;
+    padding: 12px 18px;
   }
+
+  .reviews-table th {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .reviews-table tbody tr:nth-child(even) {
+    background-color: #f5f9ed;
+  }
+
+  .reviews-table button {
+    padding: 6px 14px;
+    font-size: 14px;
+  }
+
   .pagination {
     gap: 12px;
+    margin-top: 24px;
   }
+
   .pagination button {
-    padding: 8px 12px;
-    min-width: 38px;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .pagination-info {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .modal-overlay {
+    padding: 15px;
+  }
+
+  .review-details {
+    max-width: 420px;
+    padding: 30px 30px 35px 30px;
+    max-height: 75vh;
+    font-size: 15px;
+  }
+
+  .review-details h2 {
+    font-size: 22px;
+    margin-bottom: 18px;
+    font-weight: 700;
+  }
+
+  .modal-label {
+    font-weight: 700;
+    margin-right: 6px;
+  }
+
+  .modal-value {
+    font-weight: 600;
+  }
+
+  .review-details p {
+    margin: 12px 0;
+    line-height: 1.4;
+  }
+
+  .modal-close-btn {
+    font-size: 14px;
+    padding: 12px 28px;
+    margin-top: 20px;
+    border-radius: 6px;
   }
 }
+
+
+@media only screen and (min-width: 1401px) and (max-width: 1700px) {
+  .reviews-container {
+    min-height: calc(100vh - 350px);
+    font-size: 16px;
+    color: #2f4f2f;
+    padding: 3% 4%;
+  }
+
+  .reviews-container > h1 {
+    font-size: 26px;
+    margin-top: 10px;
+    margin-left: 5%;
+  }
+
+  .reviews-content {
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .filter-container {
+    font-size: 20px;
+    margin-left: 7px;
+    margin-bottom: 25px;
+    gap: 10px;
+  }
+
+  .filter-container select {
+    font-size: 18px;
+    padding: 10px 18px;
+    width: 140px;
+    border-radius: 8px;
+  }
+
+  .reviews-table {
+    font-size: 17px;
+  }
+
+  .reviews-table th,
+  .reviews-table td {
+    padding: 14px 24px;
+  }
+
+  .reviews-table th {
+    font-size: 21px;
+    font-weight: 600;
+  }
+
+  .reviews-table tbody tr:nth-child(even) {
+    background-color: #f5f9ed;
+  }
+
+  .reviews-table button {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+
+  .pagination {
+    gap: 16px;
+    margin-top: 30px;
+  }
+
+  .pagination button {
+    padding: 10px 18px;
+    font-size: 16px;
+  }
+
+  .pagination-info {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  .modal-overlay {
+    padding: 20px;
+  }
+
+  .review-details {
+    max-width: 520px;
+    padding: 40px 40px 50px 40px;
+    max-height: 80vh;
+    font-size: 16px;
+  }
+
+  .review-details h2 {
+    font-size: 26px;
+    margin-bottom: 25px;
+    font-weight: 800;
+  }
+
+  .modal-label {
+    font-weight: 700;
+  }
+
+  .modal-value {
+    font-weight: 600;
+  }
+
+  .review-details p {
+    margin: 14px 0;
+    line-height: 1.5;
+  }
+
+  .modal-close-btn {
+    font-size: 16px;
+    padding: 14px 30px;
+    margin-top: 25px;
+    border-radius: 6px;
+  }
+}
+

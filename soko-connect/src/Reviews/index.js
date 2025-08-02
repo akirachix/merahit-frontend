@@ -2,7 +2,7 @@ import React, { useState, useEffect, useMemo } from "react";
 import { useReviews } from "../hooks/useFetchReviews/index";
 import "./style.css";
 
-const PAGE_SIZE = 9;
+const PAGE_SIZE = 7;
 
 const ReviewsIndex = () => {
   const { reviews, loading, error } = useReviews();

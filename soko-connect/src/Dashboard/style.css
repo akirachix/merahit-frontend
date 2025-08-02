@@ -1,12 +1,8 @@
 :root {
-
-
   --font-size-small: 16px;
   --font-size-medium: 20px;
   --font-size-large: 25px;
 }
-
-
 .dashboard-container {
   background-color: white;
   min-height: calc(100vh - 500px);
@@ -19,9 +15,9 @@
   text-align: center;
 }
 
-.page-banner p {
+.page-banner h4 {
   margin: 0;
-  font-size: 28px;
+  font-size: 25px;
 }
 
 .dashboard-content {
@@ -116,4 +112,44 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-size: var(--font-size-medium);
+}
+@media screen and (min-width: 1024px) and (max-width: 1700px) {
+  .dashboard-content {
+    padding-left: 0px;   
+    padding-right: 20px; 
+  }
+
+
+  .metrics-grid {
+    grid-template-columns: repeat(7, minmax(85px, 1fr));
+    gap: 8px;
+  }
+
+  .summary-graphs {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+  }
+
+  .chart-wrapper {
+    max-width: 260px;
+    height: 240px;
+    margin: 0 auto;
+  }
+
+  .metric-value {
+    font-size: 17px;
+  }
+
+  .metric-label {
+    font-size: 12px;
+  }
+
+  .dashboard-header h2 {
+    font-size: 16px;
+  }
+
+  .time-filter {
+    font-size: 12px;
+    padding: 6px 8px;
+  }
 }

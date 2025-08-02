@@ -18,7 +18,7 @@ const DiscountsIndex = () => {
   const [showModal, setShowModal] = useState(false);
   const [filteredDiscounts, setFilteredDiscounts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 8;
+  const itemsPerPage = 6;
 
   useEffect(() => {
     setSelectedDiscount(null);

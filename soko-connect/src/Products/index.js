@@ -27,7 +27,7 @@ const ProductsIndex = () => {
   const [showModal, setShowModal] = useState(false);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 7;
+  const itemsPerPage = 6;
 
   useEffect(() => {
     const filtered = capitalizedProducts
