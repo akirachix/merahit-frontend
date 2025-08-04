@@ -10,9 +10,6 @@ import LocalOfferIcon from "@mui/icons-material/LocalOffer";
 import LogoutIcon from '@mui/icons-material/Logout';
 import "./style.css";
 
-
-
-
 const sideNav = [
  { key: "dashboard", label: "Dashboard", icon: <BarChartIcon /> },
  { key: "customers", label: "Customers", icon: <PersonIcon /> },

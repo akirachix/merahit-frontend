@@ -1,19 +1,18 @@
+
 .customers-container {
-  background-color: transparent;
-  padding: 20px;
   min-height: calc(100vh - 200px);
+   margin-left: 3vw;
 }
 
-.page-banner {
+.page-banner-customer {
   background: white;
-  padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.page-banner h1 {
+.page-banner-customer h1 {
   margin: 0;
-  color: #4CAF50;
+  color: rgb(3, 102, 13);
 }
 
 .customers-content {
@@ -22,6 +21,7 @@
   gap: 20px;
   width: 100%;
   box-sizing: border-box;
+  margin-top: 5%;
 }
 
 .customers-table {
@@ -33,13 +33,16 @@
 
 .customers-table th,
 .customers-table td {
-  padding: 10px;
+  padding: 8px;
   text-align: left;
+  font-size: 18px;
   border-bottom: 1px solid #ddd;
 }
 
 .customers-table th {
   color: #4CAF50;
+  font-size: 21px;
+  font-weight: 500;
 }
 
 .customers-table button {
@@ -55,19 +58,28 @@
   background-color: #388E3C;
 }
 
-.search-container.left-align {
+.search-customer.left-align {
   display: flex;
   justify-content: flex-start;
   margin-bottom: 1rem;
   padding-left: 0;
   width: 100%;
 }
+.search-input-customer{
+   width: 25%;
+    min-width: 0;
+    font-size: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+}
 
 .profile-picture-circle {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
+   border: 2px solid #4caf50;
 }
 
 .modal-overlay {
@@ -179,8 +191,281 @@
   background: white;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1400px) {
+  .customers-container {
+    min-height: calc(100vh - 220px);
+    margin-left: 2vw;
+  }
+  .customers-content{
+    overflow-y: hidden;
+  }
+
+  .page-banner-customer h1 {
+    font-size: 24px;
+  }
+
+  .search-customer.left-align {
+    width: 100%;
+    margin-bottom: 0.8rem;
+  }
+
+  .search-input-customer {
+    width: 35%;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+
+  .customers-table th,
+  .customers-table td {
+    padding: 10px 12px;
+    font-size: 15px;
+  }
+
+  .customers-table th {
+    font-weight: 600;
+  }
+
+  .profile-picture-circle {
+    width: 42px;
+    height: 42px;
+    border-width: 1.8px;
+  }
+
+  .pagination {
+    gap: 0.75rem;
+    margin-top: 0.8rem;
+  }
+
+  .pagination button {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  .current-page {
+    font-size: 14px;
+  }
+
+  .customer-details {
+    width: 360px;
+    padding: 15px 18px;
+    top: calc(50vh - 130px);
+    left: calc(50vw - 180px);
+  }
+
+  .customer-details h2 {
+    font-size: 20px;
+  }
+
+  .profile-picture-circle-modal {
+    width: 80px;
+    height: 80px;
+  }
+
+  .customer-details p {
+    font-size: 14px;
+  }
+
+  .customer-details button {
+    padding: 6px 14px;
+    margin-left: 70%;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 1401px) and (max-width: 1700px) {
+  .customers-container {
+    min-height: calc(100vh - 200px);
+    margin-left: 3vw;
+  }
+
+  .page-banner-customer h1 {
+    font-size: 28px;
+  }
+
+  .search-customer.left-align {
+    width: 40%;
+    margin-bottom: 1rem;
+  }
+
+  .search-input-customer {
+    width: 40%;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 10px;
+  }
+
+  .customers-table th,
+  .customers-table td {
+    padding: 10px 12px;
+    font-size: 16px;
+  }
+
+  .customers-table th {
+    font-weight: 600;
+  }
+
+  .profile-picture-circle {
+    width: 48px;
+    height: 48px;
+    border-width: 2px;
+  }
+
+  .pagination {
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .pagination button {
+    padding: 8px 14px;
+    font-size: 15px;
+  }
+
+  .current-page {
+    font-size: 15px;
+  }
+
+  .customer-details {
+    width: 400px;
+    padding: 20px;
+    top: calc(50vh - 150px);
+    left: calc(50vw - 200px);
+  }
+
+  .customer-details h2 {
+    font-size: 24px;
+  }
+
+  .profile-picture-circle-modal {
+    width: 100px;
+    height: 100px;
+  }
+
+  .customer-details p {
+    font-size: 15px;
+  }
+
+  .customer-details button {
+    padding: 8px 16px;
+    margin-left: 80%;
+    font-size: 15px;
+  }
 }
 
 
 
+@media (max-width: 1024px) {
+  .customers-container {
+    font-size: 13px;
+    padding: 0px 0px;
+    min-height: calc(100vh - 220px);
+    margin-left: 0vw;
+  }
 
+  .customers-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+    margin-top: 2%;
+    box-sizing: border-box;
+    overflow-y: auto; 
+  }
+
+  .page-banner-customer h1 {
+    font-size: 20px;
+    padding: 0%;
+  }
+
+  .search-customer.left-align {
+    width: 100%;
+    margin-bottom: 0.2rem;
+    padding-left: 0;
+  }
+
+  .search-input-customer {
+    width: 25%;
+    min-width: 0;
+    font-size: 15px;
+    padding: 8px;
+    border-radius: 10px;
+    border: 1px solid #ddd;
+  }
+
+  .customers-table th,
+  .customers-table td {
+    padding: 5px;
+    text-align: left;
+    font-size: 15px;
+    border-bottom: 1px solid #ddd;
+    white-space: normal;
+    word-wrap: break-word;
+  }
+
+  .customers-table th {
+    color: #4CAF50;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .profile-picture-circle {
+    width: 34px;
+    height: 34px;
+    border-width: 1.5px;
+  }
+
+  .customers-table button {
+    padding: 4px 8px;
+    font-size: 14px;
+  }
+
+  .pagination {
+    margin-top: 0.1rem;
+    justify-content: center;
+  }
+
+  .pagination button {
+    padding: 4px 8px;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+
+  .current-page {
+    font-size: 14px;
+    font-weight: bold;
+  }
+
+  .customer-details {
+    width: 320px;
+    padding: 15px 18px;
+    top: calc(50vh - 130px);
+    left: calc(50vw - 160px);
+    max-width: 90vw;
+    font-size: 14px;
+  }
+
+  .customer-details h2 {
+    font-size: 18px;
+    color: #4CAF50;
+    margin-top: 0;
+  }
+
+  .profile-picture-circle-modal {
+    width: 72px;
+    height: 72px;
+  }
+
+  .customer-details p {
+    font-size: 14px;
+  }
+
+  .customer-details button {
+    padding: 6px 14px;
+    font-size: 14px;
+    margin-left: 70%;
+    border-radius: 4px;
+  }
+}

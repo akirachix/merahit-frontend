@@ -9,7 +9,7 @@ const Vendors = () => {
   const [showModal, setShowModal] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const itemsPerPage = 8; 
+  const itemsPerPage = 6; 
 
   useEffect(() => {
     if (selectedVendor) {
@@ -55,7 +55,7 @@ const Vendors = () => {
 
   return (
     <div className="vendors-container">
-      <div className="page-banner">
+      <div className="page-banner-vendor">
         <h1>Vendors</h1>
       </div>
       <div className="vendors-content">

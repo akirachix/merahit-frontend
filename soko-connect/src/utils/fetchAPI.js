@@ -15,14 +15,17 @@ export const fetchData = async (endpoint, method = 'GET', body = null) => {
   };
   if (token) headers.Authorization = `Token ${token}`;
 
+
   try {
     const response = await fetch(url, {
       method,
       headers,
       body: body ? JSON.stringify(body) : undefined,
     });
+
     if (!response.ok) throw new Error(`Something went wrong: ${response.status}`);
     return await response.json();
+
   } catch (error) {
     throw new Error(error.message || "An error occurred");
   }

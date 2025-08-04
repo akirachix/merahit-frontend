@@ -249,8 +249,8 @@ const Dashboard = () => {
 const DashboardIndex = () => {
   return (
     <div className="dashboard-container">
-      <div className="page-banner">
-        <p>Overview of platform metrics and analytics</p>
+      <div className="page-banner-dashboard">
+        <h4>Overview of platform metrics and analytics</h4>
       </div>
       <Dashboard />
     </div>

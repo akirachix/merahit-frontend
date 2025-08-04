@@ -1,6 +1,6 @@
 .login-bg {
   min-height: 100vh;
-  background: #f2fef6;
+  background:white;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -125,19 +125,25 @@
   cursor: pointer;
 }
 
-@media only screen and (max-width: 768px) {
+@media only screen and (width: 1024px) {
   .login-form-wrapper {
-    min-width: 280px;
-    padding-top: 10%;
+    min-width: 200px;
+    padding: 0%;
     h2{
-      font-size:1.8rem ;
+      font-size:1.4rem ;
     }
+  }
+  .login-form{
+    width: 320px;
+    
   }
 
   .login-logo {
-    width: 200px;
+    width: 100px;
   }
-
+.login-form-wrapper img{
+  width: 250px;
+}
   .triangle-left,
   .triangle-right {
     width: 170px;
@@ -153,7 +159,7 @@
 }
 }
 
-@media screen and (min-width: 769px) and (max-width: 1280px) {
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
   .login-form-wrapper {
     min-width: 450px;
     margin-top: 5%;

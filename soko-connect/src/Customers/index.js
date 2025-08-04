@@ -9,7 +9,7 @@ const Customers = () => {
   const [showModal, setShowModal] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
 
-  const itemsPerPage = 8;
+  const itemsPerPage = 6;
 
 
   useEffect(() => {
@@ -66,17 +66,17 @@ const Customers = () => {
 
   return (
     <div className="customers-container">
-      <div className="page-banner">
+      <div className="page-banner-customer">
         <h1>Customers</h1>
       </div>
       <div className="customers-content">
-        <div className="search-container left-align">
+        <div className="search-customer left-align">
           <input
             type="text"
             placeholder="Search by name or phone number..."
             value={searchTerm}
             onChange={handleSearchChange}
-            className="search-input"
+            className="search-input-customer"
           />
         </div>
         {paginatedCustomers.length > 0 ? (

@@ -1,15 +1,11 @@
 
-
-
-
-
-
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import App from "./App";
 
 
 jest.mock("./shared-components/Header/index", () => () => <div data-testid="header">Header</div>);
+
 jest.mock("./shared-components/Sidebar/index", () => (props) => (
  <div data-testid="sidebar">{props.open ? "Sidebar Open" : "Sidebar Closed"}</div>
 ));
@@ -67,4 +63,5 @@ describe("App routing", () => {
 
    window.localStorage.removeItem('access_token');
  });
+
 });

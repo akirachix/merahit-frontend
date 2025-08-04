@@ -1,21 +1,21 @@
 .vendors-container {
-  background-color: white; 
+  background-color: white;
   padding: 20px;
   min-height: calc(100vh - 200px);
+  margin-left: 2vw;
 }
 
 
-.page-banner {
+.page-banner-vendor {
   color: rgb(3, 102, 13);
   padding: 20px;
   border-radius: 8px;
   margin-bottom: 20px;
   background: white;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.page-banner h1 {
-  text-align: center;
+.page-banner-vendor h1 {
   font-size: 28px;
   margin: auto;
 }
@@ -32,7 +32,7 @@
 
 .search-container {
   display: flex;
-  justify-content: flex-start; 
+  justify-content: flex-start;
   margin-bottom: 20px;
   padding-left: 0;
   width: 100%;
@@ -63,10 +63,11 @@
 
 .vendors-table th,
 .vendors-table td {
-  padding: 10px;
+  padding: 8px;
   text-align: left;
+  font-size: 18px;
   border-bottom: 1px solid #ddd;
-  vertical-align: middle; 
+  vertical-align: middle;
 }
 
 
@@ -81,14 +82,18 @@
 
 .vendors-table th {
   color: #4CAF50;
+  font-size: 21px;
+  font-weight: 500;
 }
 
 .vendors-table td img.profile-picture-circle {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   object-fit: cover;
   display: block;
+  border: 2px solid #4caf50;
+
 }
 
 
@@ -123,11 +128,11 @@
   justify-content: center;
   align-items: center;
 
-  padding: 20px; 
+  padding: 20px;
 }
 
 .vendor-details {
-  max-width: 430px; 
+  max-width: 430px;
   width: 100%;
   background: white;
   padding: 20px;
@@ -167,7 +172,7 @@
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
-  box-shadow: 0 0 5px rgba(0,0,0,0.15);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -242,4 +247,319 @@
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-weight: 600;
-} 
+}
+
+@media only screen and (min-width: 1025px) and (max-width: 1400px) {
+  .vendors-container {
+    min-height: calc(100vh - 220px);
+    margin-left: 1.5vw;
+    padding: 15px 18px;
+  }
+
+  .page-banner-vednor h1 {
+    font-size: 24px;
+  }
+
+  .search-container {
+    width: 100%;
+    margin-bottom: 0.8rem;
+  }
+
+  .search-input {
+    width: 35%;
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 8px;
+  }
+
+  .vendors-table th,
+  .vendors-table td {
+    padding: 10px 12px;
+    font-size: 15px;
+  }
+
+  .vendors-table th {
+    font-weight: 600;
+  }
+
+  .vendors-table td img.profile-picture-circle {
+    width: 42px;
+    height: 42px;
+    border-width: 1.8px;
+  }
+
+  .pagination {
+    gap: 0.75rem;
+    margin-top: 0.8rem;
+  }
+
+  .pagination button {
+    padding: 6px 10px;
+    font-size: 14px;
+  }
+
+  .current-page {
+    font-size: 14px;
+  }
+
+  .vendor-details {
+    max-width: 360px;
+    padding: 15px 18px;
+  }
+
+  .vendor-details h2 {
+    font-size: 20px;
+  }
+
+  .profile-picture-circle-modal {
+    width: 80px;
+    height: 80px;
+  }
+
+  .vendor-details p {
+    font-size: 14px;
+  }
+
+  .vendor-details button {
+    padding: 6px 14px;
+    font-size: 14px;
+    align-self: flex-end;
+  }
+}
+
+@media only screen and (min-width: 1401px) and (max-width: 1700px) {
+  .vendors-container {
+    min-height: calc(100vh - 200px);
+    margin-left: 2vw;
+    padding: 20px 25px;
+  }
+
+  .page-banner-vendor h1 {
+    font-size: 28px;
+  }
+
+  .search-container {
+    width: 40%;
+    margin-bottom: 1rem;
+  }
+
+  .search-input {
+    width: 40%;
+    font-size: 16px;
+    padding: 10px 14px;
+    border-radius: 10px;
+  }
+
+  .vendors-table th,
+  .vendors-table td {
+    padding: 8px 12px;
+    font-size: 16px;
+  }
+
+  .vendors-table th {
+    font-weight: 600;
+  }
+  
+  .vendors-table td img.profile-picture-circle {
+    width: 48px;
+    height: 48px;
+    border-width: 2px;
+  }
+
+  .pagination {
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .pagination button {
+    padding: 8px 14px;
+    font-size: 15px;
+  }
+
+  .current-page {
+    font-size: 15px;
+  }
+
+  .vendor-details {
+    max-width: 430px;
+    padding: 20px 25px;
+  }
+
+  .vendor-details h2 {
+    font-size: 24px;
+  }
+
+  .profile-picture-circle-modal {
+    width: 100px;
+    height: 100px;
+  }
+
+  .vendor-details p {
+    font-size: 15px;
+  }
+
+  .vendor-details button {
+    padding: 8px 16px;
+    font-size: 15px;
+    align-self: flex-end;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .vendors-container {
+    background-color: white;
+    padding: 0px 0px;
+    min-height: calc(100vh - 220px);
+    margin-left: 1vw;
+    box-sizing: border-box;
+  }
+
+  .page-banner-vendor {
+    padding: 4px 4px;
+    margin-bottom: 10px;
+  }
+
+  .page-banner-vendor h1 {
+    font-size: 22px;
+    margin-left: 40%;
+  }
+
+  .search-container {
+    width: 100%;
+    margin-bottom: 2px;
+    padding-left: 0;
+    justify-content: flex-start;
+    gap: 10px;
+  }
+
+  .search-input {
+    width: 100%;
+    max-width: 280px;
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 6px;
+  }
+
+  .vendors-table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  .vendors-table th,
+  .vendors-table td {
+    padding: 6px 10px;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+    vertical-align: middle;
+    text-align: left;
+  }
+
+  .vendors-table th:nth-child(4),
+  .vendors-table td:nth-child(4) {
+    max-width: 150px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .vendors-table th {
+    color: #4caf50;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  .vendors-table td img.profile-picture-circle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    border-width: 1.5px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .vendors-table button {
+    padding: 5px 10px;
+    font-size: 13px;
+    border-radius: 4px;
+  }
+
+  .vendors-table button:hover,
+  .vendors-table button:focus {
+    background-color: #388e3c;
+    outline: none;
+    color: white;
+  }
+
+
+  .pagination {
+    gap: 0.75rem;
+    margin-top: 16px;
+    justify-content: center;
+  }
+
+  .pagination button {
+    padding: 6px 10px;
+    font-size: 13px;
+    border-radius: 4px;
+  }
+
+  .pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+
+  .pagination button.active {
+    background-color: #388e3c;
+    font-weight: 700;
+  }
+
+  .current-page {
+    font-size: 13px;
+  }
+
+  .vendor-details {
+    max-width: 360px;
+    width: 100%;
+    padding: 16px 18px;
+    box-sizing: border-box;
+  }
+
+  .vendor-details h2 {
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .profile-picture-circle-modal {
+    width: 80px;
+    height: 80px;
+    box-shadow: 0 0 4px rgba(0,0,0,0.1);
+  }
+
+
+
+  .vendor-details p {
+    font-size: 14px;
+    margin: 6px 0;
+  }
+
+  .vendor-details button {
+    padding: 6px 14px;
+    font-size: 14px;
+    align-self: flex-end;
+    border-radius: 4px;
+  }
+
+  .vendor-details button:hover,
+  .vendor-details button:focus {
+    background-color: #064109;
+    outline: none;
+  }
+
+  .loading,
+  .error,
+  .no-data {
+    padding: 16px;
+    font-size: 14px;
+  }
+}

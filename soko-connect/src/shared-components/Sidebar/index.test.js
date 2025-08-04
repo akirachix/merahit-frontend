@@ -1,7 +1,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import { useNavigate } from 'react-router-dom';
-import Sidebar from './index'; 
+import Sidebar from './index';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import PersonIcon from '@mui/icons-material/Person';
 import BusinessIcon from '@mui/icons-material/Business';
@@ -13,7 +13,6 @@ import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 jest.mock('react-router-dom', () => ({
   useNavigate: jest.fn(),
 }));
-
 jest.mock('@mui/icons-material/BarChart', () => () => <span data-testid="BarChartIcon" />);
 jest.mock('@mui/icons-material/Person', () => () => <span data-testid="PersonIcon" />);
 jest.mock('@mui/icons-material/Business', () => () => <span data-testid="BusinessIcon" />);
@@ -25,7 +24,6 @@ jest.mock('@mui/icons-material/LocalOffer', () => () => <span data-testid="Local
 describe('Sidebar Component', () => {
   const mockSetSidebarOpen = jest.fn();
   const mockNavigate = jest.fn();
-
   beforeEach(() => {
     jest.clearAllMocks();
     useNavigate.mockReturnValue(mockNavigate);
@@ -62,7 +60,7 @@ describe('Sidebar Component', () => {
     expect(screen.getByText('Customers').parentElement).toHaveClass('active');
     expect(screen.getByText('Dashboard').parentElement).not.toHaveClass('active');
   });
-
+  
   test('forwards ref to nav element', () => {
     const ref = React.createRef();
     render(<Sidebar open={true} setSidebarOpen={mockSetSidebarOpen} ref={ref} />);
