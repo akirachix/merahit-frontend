@@ -1,0 +1,691 @@
+.reviews-container {
+  min-height: calc(100vh - 350px);
+  color: #2f4f2f;
+}
+
+.reviews-container>h1 {
+  margin-top: 5px;
+  margin-left: 5%;
+}
+
+.reviews-content {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
+}
+
+.filter-container {
+  font-size: 20px;
+  color: #3b8d21;
+  font-weight: 700;
+  margin-left: 7px;
+  margin-bottom: 25px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.filter-container select {
+  font-size: 18px;
+  padding: 10px 18px;
+  width: 140px;
+  border-radius: 8px;
+  color: #2f4f2f;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.filter-container select:focus {
+  outline: none;
+}
+
+.reviews-table {
+  width: 100%;
+  background: white;
+  border-collapse: separate;
+  overflow: hidden;
+  font-size: 18px;
+}
+
+.reviews-table th,
+.reviews-table td {
+  padding: 14px 24px;
+  text-align: left;
+  border-bottom: 1px solid rgb(79, 209, 90);
+}
+
+.reviews-table th {
+  color: #2f4f2f;
+  background-color: #e9f0de;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 21px;
+  letter-spacing: 0.03em;
+}
+
+.reviews-table tbody tr:nth-child(even) {
+  background-color: #f5f9ed;
+}
+
+.reviews-table tbody tr:hover {
+  cursor: pointer;
+}
+
+.reviews-table button {
+  padding: 6px 14px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.reviews-table button:hover {
+  box-shadow: none;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 2000;
+  cursor: pointer;
+
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.review-details {
+  width: 90%;
+  max-width: 520px;
+  padding: 40px 40px 50px 40px;
+  border-radius: 10px;
+  position: relative;
+  cursor: default;
+  font-size: 16px;
+  color: #2e7d32;
+  box-sizing: border-box;
+  overflow-y: auto;
+  max-height: 80vh;
+  background-color: white;
+}
+
+.review-details h2 {
+  color: #000000;
+  margin-top: 0;
+  margin-bottom: 25px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  font-size: 26px;
+}
+
+.modal-label {
+  color: #000000;
+  font-weight: 700;
+  margin-right: 8px;
+}
+
+.modal-value {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+.review-details p {
+  margin: 14px 0;
+  line-height: 1.5;
+}
+
+.modal-close-btn {
+  margin-top: 25px;
+  padding: 14px 30px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.modal-close-btn:hover,
+.modal-close-btn:focus {
+  outline: none;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 30px;
+}
+
+.pagination button {
+  padding: 10px 18px;
+  background-color: #198686;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.25s ease;
+  min-width: 44px;
+}
+
+.pagination button:disabled {
+  background-color: #a5ca8b;
+  cursor: not-allowed;
+  color: #547923;
+  box-shadow: none;
+}
+
+.pagination button.active {
+  background-color: #3b8d21;
+  font-weight: 700;
+  outline: 2px solid #2f4f2f;
+}
+
+.pagination-info {
+  padding: 10px 20px;
+  font-weight: 700;
+  color: #3b8d21;
+  border: 2px solid #4caf50;
+  border-radius: 6px;
+  user-select: none;
+  min-width: 44px;
+  text-align: center;
+  display: inline-block;
+}
+
+.loading,
+.error,
+.no-data {
+  padding: 35px 25px;
+  text-align: center;
+  color: #406030;
+  background: #e6f0d9;
+  border-radius: 8px;
+  border: 1px solid #a5ca8b;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+button:focus {
+  outline: 3px solid #a4c26b;
+  outline-offset: 2px;
+}
+
+.vendor-name {
+  color: rgb(42, 87, 42);
+  font-weight: 700;
+}
+
+.customer-name {
+  color: #a4c26b;
+  font-weight: 600;
+}
+
+
+.status-pending {
+  color: #f0ad4e;
+  font-weight: 700;
+}
+
+.status-approved {
+  color: #4caf50;
+  font-weight: 700;
+}
+
+.status-rejected {
+  color: #d32f2f;
+  font-weight: 700;
+}
+
+#ratingFilter {
+  padding: 8px 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #4caf50;
+  background: #f5f9ed;
+  cursor: pointer;
+  font-weight: 600;
+  transition: border-color 0.3s ease;
+  min-width: 150px;
+}
+
+
+@media only screen and (min-width: 1025px) and (max-width: 1400px) {
+  .reviews-container {
+    min-height: calc(100vh - 380px);
+    font-size: 15px;
+    color: #2f4f2f;
+    padding: 2% 3%;
+  }
+
+  .reviews-container > h1 {
+    font-size: 24px;
+    margin-top: 8px;
+    margin-left: 3%;
+  }
+
+  .reviews-content {
+    width: 95%;
+    max-height: 80vh;
+    overflow-y: hidden;
+  }
+
+  .filter-container {
+    font-size: 18px;
+    margin-left: 5px;
+    margin-bottom: 20px;
+    gap: 8px;
+  }
+
+  .filter-container select {
+    font-size: 16px;
+    padding: 8px 16px;
+    width: 130px;
+    border-radius: 6px;
+  }
+
+  .reviews-table {
+    font-size: 15px;
+  }
+
+  .reviews-table th,
+  .reviews-table td {
+    padding: 12px 18px;
+  }
+
+  .reviews-table th {
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .reviews-table tbody tr:nth-child(even) {
+    background-color: #f5f9ed;
+  }
+
+  .reviews-table button {
+    padding: 6px 14px;
+    font-size: 14px;
+  }
+
+  .pagination {
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .pagination button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .pagination-info {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .modal-overlay {
+    padding: 15px;
+  }
+
+  .review-details {
+    max-width: 420px;
+    padding: 30px 30px 35px 30px;
+    max-height: 75vh;
+    font-size: 15px;
+  }
+
+  .review-details h2 {
+    font-size: 22px;
+    margin-bottom: 18px;
+    font-weight: 700;
+  }
+
+  .modal-label {
+    font-weight: 700;
+    margin-right: 6px;
+  }
+
+  .modal-value {
+    font-weight: 600;
+  }
+
+  .review-details p {
+    margin: 12px 0;
+    line-height: 1.4;
+  }
+
+  .modal-close-btn {
+    font-size: 14px;
+    padding: 12px 28px;
+    margin-top: 20px;
+    border-radius: 6px;
+  }
+}
+
+
+@media only screen and (min-width: 1401px) and (max-width: 1700px) {
+  .reviews-container {
+    min-height: calc(100vh - 350px);
+    font-size: 16px;
+    color: #2f4f2f;
+    padding: 3% 4%;
+  }
+
+  .reviews-container > h1 {
+    font-size: 26px;
+    margin-top: 10px;
+    margin-left: 5%;
+  }
+
+  .reviews-content {
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .filter-container {
+    font-size: 20px;
+    margin-left: 7px;
+    margin-bottom: 25px;
+    gap: 10px;
+  }
+
+  .filter-container select {
+    font-size: 18px;
+    padding: 10px 18px;
+    width: 140px;
+    border-radius: 8px;
+  }
+
+  .reviews-table {
+    font-size: 17px;
+  }
+
+  .reviews-table th,
+  .reviews-table td {
+    padding: 14px 24px;
+  }
+
+  .reviews-table th {
+    font-size: 21px;
+    font-weight: 600;
+  }
+
+  .reviews-table tbody tr:nth-child(even) {
+    background-color: #f5f9ed;
+  }
+
+  .reviews-table button {
+    padding: 8px 16px;
+    font-size: 16px;
+  }
+
+  .pagination {
+    gap: 16px;
+    margin-top: 30px;
+  }
+
+  .pagination button {
+    padding: 10px 18px;
+    font-size: 16px;
+  }
+
+  .pagination-info {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
+  .modal-overlay {
+    padding: 20px;
+  }
+
+  .review-details {
+    max-width: 520px;
+    padding: 40px 40px 50px 40px;
+    max-height: 80vh;
+    font-size: 16px;
+  }
+
+  .review-details h2 {
+    font-size: 26px;
+    margin-bottom: 25px;
+    font-weight: 800;
+  }
+
+  .modal-label {
+    font-weight: 700;
+  }
+
+  .modal-value {
+    font-weight: 600;
+  }
+
+  .review-details p {
+    margin: 14px 0;
+    line-height: 1.5;
+  }
+
+  .modal-close-btn {
+    font-size: 16px;
+    padding: 14px 30px;
+    margin-top: 25px;
+    border-radius: 6px;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .reviews-container {
+    min-height: calc(100vh - 380px);
+    font-size: 14px;
+    color: #2f4f2f;
+    padding: 4px 5px;
+    overflow: hidden;
+  }
+  .reviews-container h1 {
+    font-size: 20px;
+    margin-top: 2px;
+    margin-left: 5%;
+    padding:0;
+  }
+  .reviews-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+    max-height: 75vh;
+    overflow-y: hidden;
+  }
+
+  .filter-container {
+    font-size: 16px;
+    margin-left: 7px;
+    margin-bottom: 8px;
+    gap: 8px;
+    display: flex;
+    align-items: center;
+  }
+
+  .filter-container select {
+    font-size: 14px;
+    padding: 6px 8px;
+    width: 120px;
+    border-radius: 6px;
+    color: #2f4f2f;
+    font-weight: 600;
+    cursor: pointer;
+  }
+
+  .filter-container select:focus {
+    outline: none;
+  }
+
+  .reviews-table {
+    width: 100%;
+    font-size: 14px;
+    border-collapse: separate;
+    overflow: hidden;
+  }
+
+  .reviews-table th,
+  .reviews-table td {
+    padding: 6px 8px;
+    text-align: left;
+    border-bottom: 1px solid rgb(79, 209, 90);
+  }
+
+  .reviews-table th {
+    color: #2f4f2f;
+    background-color: #e9f0de;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 0.02em;
+  }
+
+  .reviews-table tbody tr:nth-child(even) {
+    background-color: #f5f9ed;
+  }
+
+  .reviews-table tbody tr:hover {
+    cursor: pointer;
+  }
+
+  .reviews-table button {
+    padding: 5px 12px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+  }
+
+  .reviews-table button:hover {
+    box-shadow: none;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 24px;
+  }
+
+  .pagination button {
+    padding: 8px 16px;
+    background-color: #198686;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    min-width: 44px;
+    transition: background-color 0.25s ease;
+  }
+
+  .pagination button:disabled {
+    background-color: #a5ca8b;
+    cursor: not-allowed;
+    color: #547923;
+    box-shadow: none;
+  }
+
+  .pagination button.active {
+    background-color: #3b8d21;
+    font-weight: 700;
+    outline: 2px solid #2f4f2f;
+  }
+
+  .pagination-info {
+    padding: 8px 16px;
+    font-weight: 700;
+    color: #3b8d21;
+    border: 2px solid #4caf50;
+    border-radius: 6px;
+    user-select: none;
+    min-width: 44px;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+  }
+
+  .modal-overlay {
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .review-details {
+    width: 90%;
+    max-width: 420px;
+    padding: 30px 30px 35px 30px;
+    border-radius: 10px;
+    position: relative;
+    cursor: default;
+    font-size: 15px;
+    color: #2e7d32;
+    box-sizing: border-box;
+    overflow-y: auto;
+    max-height: 75vh;
+    background-color: white;
+  }
+
+  .review-details h2 {
+    font-size: 22px;
+    margin-bottom: 18px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+
+  .modal-label {
+    font-weight: 700;
+    margin-right: 6px;
+  }
+
+  .modal-value {
+    font-weight: 600;
+  }
+
+  .review-details p {
+    margin: 12px 0;
+    line-height: 1.4;
+  }
+
+  .modal-close-btn {
+    font-size: 14px;
+    padding: 12px 28px;
+    margin-top: 20px;
+    border-radius: 6px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    font-weight: 700;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    transition: background-color 0.3s ease;
+  }
+
+  .modal-close-btn:hover,
+  .modal-close-btn:focus {
+    outline: none;
+  }
+}

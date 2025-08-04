@@ -1,0 +1,25 @@
+.admin-dashboard-app {
+  min-height: 100vh;
+}
+
+.main-area {
+  margin-left: 0;
+  padding: 60px 20px 20px 20px; 
+  transition: margin-left 0.3s ease;
+}
+
+.main-area.shifted {
+  margin-left: 250px;
+}
+
+.main-area main {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+html, body {
+  font-family: 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
